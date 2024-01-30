@@ -6,10 +6,10 @@ public class Item : MonoBehaviour
 {
     public ItemName itemName;
     public GameObject PickBubble;
-    private string pickUpProp = "PickUpProp";
+    //private string pickUpProp = "PickUpProp";
     private void Awake() {
         //设置可拾取物品Tag
-        InventoryManager.Instance.SetGameObjectTag(this.gameObject,pickUpProp);
+        //InventoryManager.Instance.SetGameObjectTag(this.gameObject,pickUpProp);
 
         PickBubble.SetActive(false);
     }

@@ -1,4 +1,4 @@
 public enum ItemName
 {
-    None, Egg, Nest
+    None, Egg, Seed
 }
