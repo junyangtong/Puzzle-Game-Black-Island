@@ -3189,7 +3189,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.034517, y: 0.04975001}
   m_AnchorMax: {x: 0.14682767, y: 0.25425002}
-  m_AnchoredPosition: {x: -1, y: -0.9999695}
+  m_AnchoredPosition: {x: -1, y: -1}
   m_SizeDelta: {x: 4, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &950550531
@@ -4227,7 +4227,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.41900003, y: 0.90586513}
   m_AnchorMax: {x: 0.586, y: 1}
-  m_AnchoredPosition: {x: -1.5, y: 3.0000153}
+  m_AnchoredPosition: {x: -1.5, y: 3}
   m_SizeDelta: {x: -1, y: 68}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1195420319
@@ -4849,9 +4849,10 @@ GameObject:
   - component: {fileID: 1394314685}
   - component: {fileID: 1394314684}
   - component: {fileID: 1394314683}
-  m_Layer: 0
-  m_Name: niaowo
-  m_TagString: Untagged
+  - component: {fileID: 1394314686}
+  m_Layer: 9
+  m_Name: Nest
+  m_TagString: InteractiveProp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4886,11 +4887,11 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.76
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -4944,6 +4945,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1394314681}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1394314686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394314681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27a64eff41c8cf84e831f4b5897ae07e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requireItem: 1
+  isDone: 0
 --- !u!1 &1430683050
 GameObject:
   m_ObjectHideFlags: 0
