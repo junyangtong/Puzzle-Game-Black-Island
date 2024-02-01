@@ -27,15 +27,16 @@ public class InventoryManager : Singleton<InventoryManager>
         // 设置实例化物体的参数
         SlotUI slotUI = newItem.GetComponent<SlotUI>();
         slotUI.SetItem(itemDetails);
-        Debug.Log("CreateNewItem");
+        Debug.Log("拾取"+itemDetails.itemName);
     }
+
+    //运行时设置物体Tag
     public void SetGameObjectTag(GameObject gameObject, string tag)
     {
         if (!UnityEditorInternal.InternalEditorUtility.tags.Equals(tag)) // 如果tag列表中没有这个tag
         {
             UnityEditorInternal.InternalEditorUtility.AddTag(tag); // 在tag列表中添加这个tag
         }
-        else
         gameObject.tag = tag;
     }
 }

@@ -12,7 +12,6 @@ public class SlotUI : MonoBehaviour
         currentItem = itemDetails;
         itemImage.sprite = itemDetails.itemSprite;
         itemImage.SetNativeSize();
-        Debug.Log("SetItem");
     }
     
 }

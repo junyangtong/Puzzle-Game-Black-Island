@@ -4,22 +4,24 @@ using UnityEngine;
 
 public class CollisionEvents : MonoBehaviour
 {
+    public bool CanInteractive = false;
+
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "PickUpProp"){};
+        if (collision.gameObject.layer == 9)
         { 
-            //气泡出现
-            var Pickeditem = collision.gameObject.GetComponent<Item>();
-            Pickeditem?.PickBubbleAppear(); 
+            //靠近可拾取物品
+            CanInteractive = true;
+            Debug.Log("靠近可拾取物品" + "Layer层级：" + collision.gameObject.layer);
         }
     }
     void OnTriggerExit(Collider collision)
     {
-        if (collision.gameObject.tag == "PickUpProp"){};
+        if (collision.gameObject.layer == 9)
         { 
-            //气泡消失
-            var Pickeditem = collision.gameObject.GetComponent<Item>();
-            Pickeditem?.PickBubbleDisAppear(); 
+            //离开可拾取物品
+            CanInteractive = false;
+            Debug.Log("离开可拾取物品" + "Layer层级：" + collision.gameObject.layer);
         }
     }
 }
