@@ -10,6 +10,29 @@ public class InventoryManager : Singleton<InventoryManager>
     public GameObject slotGrid;
     public GameObject slotPrefab;   // prefab
     [SerializeField] private List<ItemName> itemList = new List<ItemName>();
+    private void OnEnable()
+    {
+        EventHandler.ItemUsedEvent += OnItemUsedEvent;
+    }
+    private void OnDisable() 
+    {
+        EventHandler.ItemUsedEvent -= OnItemUsedEvent;
+    }
+    //使用物品时移除背包中的对应物品
+    private void OnItemUsedEvent(ItemName itemName)
+    {
+        int children = slotGrid.transform.childCount;
+        for (int i = 0; i < children; i++)
+        {
+            if(slotGrid.transform.GetChild(i).tag == itemName.ToString())
+            {
+                Destroy(slotGrid.transform.GetChild(i).gameObject);
+                Debug.Log("移除背包中tag为"+slotGrid.transform.GetChild(i).tag+"的物品");
+                itemList.Remove(itemName);
+            }
+        }
+        
+    }
     public void AddItem(ItemName itemName)
     {
         if(!itemList.Contains(itemName))
@@ -19,15 +42,21 @@ public class InventoryManager : Singleton<InventoryManager>
             itemDetails = itemData.GetItemDetails(itemName);
             CreateNewItem(itemDetails);
         }
+        else
+        {
+            Debug.Log("请勿重复添加，已销毁");
+        }
     }
     public void CreateNewItem(ItemDetails itemDetails)
     {
         GameObject newItem = Instantiate(slotPrefab,slotGrid.transform.position,Quaternion.identity);
         newItem.transform.SetParent(slotGrid.transform);
+        //设置Tag
+        SetGameObjectTag(newItem, itemDetails.itemName.ToString());
         // 设置实例化物体的参数
         SlotUI slotUI = newItem.GetComponent<SlotUI>();
         slotUI.SetItem(itemDetails);
-        Debug.Log("拾取"+itemDetails.itemName);
+         Debug.Log("拾取"+itemDetails.itemName);
     }
 
     //运行时设置物体Tag

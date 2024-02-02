@@ -15,8 +15,9 @@ public class Interactive : MonoBehaviour
             isDone = true;
             //使用这个物品，移除物品
             OnClickedAction();
+            EventHandler.CallItemUsedEvent(itemName);
         }
-    }
+    } 
     /// <summary>
     /// 默认是正确物品的情况执行
     /// <summary>

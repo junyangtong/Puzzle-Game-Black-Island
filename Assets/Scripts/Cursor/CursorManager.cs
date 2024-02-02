@@ -34,7 +34,7 @@ public class CursorManager : MonoBehaviour
 
     void Update()
     {
-        //TODO：物品分类
+        //物品分类：
         //1.可拾取
         //2.可使用物品
         //3.可操作
