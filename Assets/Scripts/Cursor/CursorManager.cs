@@ -10,6 +10,7 @@ public class CursorManager : MonoBehaviour
     private bool holdItem;
 
     public CollisionEvents collisionEvents;
+
     private void OnEnable() 
     {
         EventHandler.ItemSelectedEvent += OnItemSelectedEvent;
@@ -25,11 +26,8 @@ public class CursorManager : MonoBehaviour
         if(isSelected)
         {
             currentItem = itemDetails.itemName;
-            Debug.Log("当前选择"+currentItem);
             // TODO:替换角色手中的模型
-
         }
-
     }
 
     void Update()
@@ -60,7 +58,11 @@ public class CursorManager : MonoBehaviour
                         case"InteractiveProp":
                             var interactive = clickObject.collider.gameObject.GetComponent<Interactive>();
                             if(holdItem)
-                                interactive?.CheckItem(currentItem);
+                                {
+                                    interactive?.CheckItem(currentItem);
+                                    if(interactive.isDone)
+                                        holdItem =false;//如果物品成功使用了 则取消选择状态
+                                }
                             else
                                 interactive?.EmptyClicked();
                             break;
@@ -68,5 +70,14 @@ public class CursorManager : MonoBehaviour
                 }
             }
         }
+    }
+    
+     /// <summary>
+    /// 与此类无关 初始化背包
+    /// </summary>
+    private void Awake() {
+        //开始前创建空物品栏
+        InventoryManager.Instance.AddItem(ItemName.None);
+        EventHandler.CallUpdateItemNameEvent(ItemName.None,false);
     }
 }

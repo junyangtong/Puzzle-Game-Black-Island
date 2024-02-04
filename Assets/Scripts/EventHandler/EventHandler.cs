@@ -14,4 +14,25 @@ public static class EventHandler
     {
         ItemUsedEvent?.Invoke(itemName);
     }
+
+    //对话
+    public static event Action<string> ShowDialogueEvent;
+    public static void CallShowDialogueEvent(string dialogue)
+    {
+        ShowDialogueEvent?.Invoke(dialogue);
+    }
+
+    //游戏状态
+    public static event Action<GameState> GameStateChangeEvent;
+    public static void CallGameStateChangeEvent(GameState gameState)
+    {
+        GameStateChangeEvent?.Invoke(gameState);
+    }
+
+    //提示标签
+    public static event Action<ItemName,bool> UpdateItemNameEvent;
+    public static void CallUpdateItemNameEvent(ItemName itemName,bool isSelected)
+    {
+        UpdateItemNameEvent?.Invoke(itemName,isSelected);
+    }
 }

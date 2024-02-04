@@ -9,6 +9,7 @@ public class InventoryManager : Singleton<InventoryManager>
     public ItemDetails itemDetails;
     public GameObject slotGrid;
     public GameObject slotPrefab;   // prefab
+    public bool isSelected;
     [SerializeField] private List<ItemName> itemList = new List<ItemName>();
     private void OnEnable()
     {
@@ -23,11 +24,13 @@ public class InventoryManager : Singleton<InventoryManager>
     {
         int children = slotGrid.transform.childCount;
         for (int i = 0; i < children; i++)
-        {
-            if(slotGrid.transform.GetChild(i).tag == itemName.ToString())
+        {   
+            SlotUI slotUI = slotGrid.transform.GetChild(i).GetComponent<SlotUI>();
+            if(slotUI.currentItem.itemName == itemName)
             {
-                Destroy(slotGrid.transform.GetChild(i).gameObject);
-                Debug.Log("移除背包中tag为"+slotGrid.transform.GetChild(i).tag+"的物品");
+                EventHandler.CallUpdateItemNameEvent(ItemName.None,false);
+                Destroy(slotUI.gameObject);
+                Debug.Log("移除背包中的"+slotUI.currentItem.itemName);
                 itemList.Remove(itemName);
             }
         }
@@ -51,21 +54,19 @@ public class InventoryManager : Singleton<InventoryManager>
     {
         GameObject newItem = Instantiate(slotPrefab,slotGrid.transform.position,Quaternion.identity);
         newItem.transform.SetParent(slotGrid.transform);
-        //设置Tag
-        SetGameObjectTag(newItem, itemDetails.itemName.ToString());
         // 设置实例化物体的参数
         SlotUI slotUI = newItem.GetComponent<SlotUI>();
         slotUI.SetItem(itemDetails);
-         Debug.Log("拾取"+itemDetails.itemName);
+        Debug.Log("拾取"+itemDetails.itemName);
     }
 
     //运行时设置物体Tag
-    public void SetGameObjectTag(GameObject gameObject, string tag)
+    /*public void SetGameObjectTag(GameObject gameObject, string tag)
     {
         if (!UnityEditorInternal.InternalEditorUtility.tags.Equals(tag)) // 如果tag列表中没有这个tag
         {
             UnityEditorInternal.InternalEditorUtility.AddTag(tag); // 在tag列表中添加这个tag
         }
         gameObject.tag = tag;
-    }
+    }*/
 }

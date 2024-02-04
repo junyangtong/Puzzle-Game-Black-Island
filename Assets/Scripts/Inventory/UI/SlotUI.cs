@@ -7,8 +7,9 @@ using UnityEngine.UI;
 public class SlotUI : MonoBehaviour,IPointerClickHandler
 {
     public Image itemImage;
-    private ItemDetails currentItem;
+    public ItemDetails currentItem;
     private bool isSelected;
+    private bool isSelectedtemp;
     public void SetItem(ItemDetails itemDetails)
     {
         currentItem = itemDetails;
@@ -17,8 +18,21 @@ public class SlotUI : MonoBehaviour,IPointerClickHandler
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        isSelected = !isSelected;
-        //呼叫方法
+        //设置isSelected
+        isSelectedtemp = InventoryManager.Instance.isSelected;
+        
+        if(currentItem.itemName == ItemName.None)
+            isSelectedtemp = false;
+        else
+            isSelectedtemp = true;
+
+        InventoryManager.Instance.isSelected = isSelectedtemp;
+        isSelected = InventoryManager.Instance.isSelected;
+
+        //呼叫方法 修改提示词
+        EventHandler.CallUpdateItemNameEvent(currentItem.itemName,isSelected);
+        
+        //呼叫方法 判断是否选择物品
         EventHandler.CallItemSelectedEvent(currentItem,isSelected);
 
     }

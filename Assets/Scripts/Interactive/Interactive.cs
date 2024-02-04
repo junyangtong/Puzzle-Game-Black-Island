@@ -17,6 +17,10 @@ public class Interactive : MonoBehaviour
             OnClickedAction();
             EventHandler.CallItemUsedEvent(itemName);
         }
+        if(itemName != requireItem && !isDone)
+        {
+            Debug.Log("物品错误无法使用");
+        }
     } 
     /// <summary>
     /// 默认是正确物品的情况执行
