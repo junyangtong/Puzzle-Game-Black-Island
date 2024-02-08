@@ -8,6 +8,8 @@ TagManager:
   - PickBubble
   - InteractiveProp
   - PickUpProp
+  - CanBeUseProp
+  - FreelyUseProp
   layers:
   - Default
   - TransparentFX

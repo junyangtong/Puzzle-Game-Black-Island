@@ -35,4 +35,11 @@ public static class EventHandler
     {
         UpdateItemNameEvent?.Invoke(itemName,isSelected);
     }
+
+    //检查密码是否匹配
+    public static event Action CheckGameStateEvent;
+    public static void CallCheckGameStateEvent()
+    {
+        CheckGameStateEvent?.Invoke();
+    }
 }

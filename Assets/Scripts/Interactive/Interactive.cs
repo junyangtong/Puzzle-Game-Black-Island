@@ -8,6 +8,10 @@ public class Interactive : MonoBehaviour
     public ItemName requireItem;
     public bool isDone;
 
+    /// <summary>
+    /// 需要使用背包中的物品交互
+    /// </summary>
+    /// <param name="itemName"></param>
     public void CheckItem(ItemName itemName)
     {
         if(itemName == requireItem && !isDone)
@@ -22,6 +26,13 @@ public class Interactive : MonoBehaviour
             Debug.Log("物品错误无法使用");
         }
     } 
+    /// <summary>
+    /// 不需要使用物品就可以交互
+    /// </summary>
+    public void ClickItem()
+    {
+        OnClickedAction();
+    }
     /// <summary>
     /// 默认是正确物品的情况执行
     /// <summary>

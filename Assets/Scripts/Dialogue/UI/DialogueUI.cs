@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DialogueUI : MonoBehaviour
 {
+    public CollisionEvents collisionEvents;
     public GameObject panel;
     public Text dialogueText;
 

@@ -38,7 +38,7 @@ public class CursorManager : MonoBehaviour
         //3.可操作
 
         //如果角色靠近可交互物品
-        if(collisionEvents.CanInteractive == true){
+        
             //（0是左键、1是右键）
             if (Input.GetMouseButtonDown(0))
             {
@@ -46,30 +46,47 @@ public class CursorManager : MonoBehaviour
                 ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 //如果射线碰到物体
                 if (Physics.Raycast(ray, out clickObject))
-                {
-                    switch(clickObject.transform.tag)
+                {   
+                    if(collisionEvents.CanInteractive == true)
                     {
-                        case "PickUpProp":
-                            //执行拾取方法
-                            var Pickeditem = clickObject.collider.gameObject.GetComponent<Item>();
-                            Pickeditem?.ItemPicked(); 
-                            collisionEvents.CanInteractive = false;
-                            break;
-                        case"InteractiveProp":
-                            var interactive = clickObject.collider.gameObject.GetComponent<Interactive>();
-                            if(holdItem)
-                                {
-                                    interactive?.CheckItem(currentItem);
-                                    if(interactive.isDone)
-                                        holdItem =false;//如果物品成功使用了 则取消选择状态
-                                }
-                            else
-                                interactive?.EmptyClicked();
-                            break;
+                        switch(clickObject.transform.tag)
+                        {
+                            case "PickUpProp":
+                                //执行拾取方法
+                                var Pickeditem = clickObject.collider.gameObject.GetComponent<Item>();
+                                Pickeditem?.ItemPicked(); 
+                                collisionEvents.CanInteractive = false;
+                                break;
+
+                            case"InteractiveProp":
+                                var interactive = clickObject.collider.gameObject.GetComponent<Interactive>();
+                                if(holdItem)
+                                    {
+                                        interactive?.CheckItem(currentItem);
+                                        //if(interactive.isDone)
+                                            holdItem =false;//如果物品成功使用了 则取消选择状态
+                                    }
+                                else
+                                    interactive?.EmptyClicked();
+                                break;
+
+                            case"CanBeUseProp":
+                                var interactive1 = clickObject.collider.gameObject.GetComponent<Interactive>();
+                                interactive1?.ClickItem();
+                                break;
+                        }
                     }
+                        //不需要碰撞检测就可以触发点击 一般用于小游戏中的道具
+                        switch(clickObject.transform.tag)
+                            {
+                                case "FreelyUseProp":
+                                    var interactive2 = clickObject.collider.gameObject.GetComponent<Interactive>();
+                                    interactive2?.ClickItem();
+                                    break;
+                            }
+                        
                 }
             }
-        }
     }
     
      /// <summary>

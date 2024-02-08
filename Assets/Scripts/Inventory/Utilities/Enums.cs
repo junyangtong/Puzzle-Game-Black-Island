@@ -5,5 +5,5 @@ public enum ItemName
 
 public enum GameState
 {
-    Pause, GamePlay
+    Pause, GamePlay, MiniGame
 }

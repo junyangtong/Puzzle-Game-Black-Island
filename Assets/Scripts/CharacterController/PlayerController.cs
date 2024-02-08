@@ -10,7 +10,19 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private Transform player;
     private Vector3 targetDirection,currentDirection;
-    
+    private bool canMove = false;
+    private void OnEnable() 
+    {
+        EventHandler.GameStateChangeEvent += OnGameStateChangeEvent;
+    }
+    private void OnDisable() 
+    {
+        EventHandler.GameStateChangeEvent -= OnGameStateChangeEvent;
+    }
+    private void OnGameStateChangeEvent(GameState gameState)
+    {
+        canMove = gameState == GameState.MiniGame;
+    }
     void Start()
     {
         car = GetComponent<CharacterController>();
@@ -22,9 +34,12 @@ public class PlayerController : MonoBehaviour
     {   
         // 角色移动
         Vector3 move = Vector3.zero;
-        move.x = Input.GetAxis("Horizontal") * Time.deltaTime;
-        move.z = Input.GetAxis("Vertical") * Time.deltaTime;
-        move.y -= 3f * Time.deltaTime;  //模拟重力
+        if(!canMove)
+        {
+            move.x = Input.GetAxis("Horizontal") * Time.deltaTime;
+            move.z = Input.GetAxis("Vertical") * Time.deltaTime;
+            move.y -= 3f * Time.deltaTime;  //模拟重力
+        }
         if (car != null)
         {
             car.Move(move*speed);
@@ -32,17 +47,22 @@ public class PlayerController : MonoBehaviour
 
         // 角色旋转
         currentDirection = transform.forward.normalized;
-        
-        if(move.x!=0 || move.z !=0){
+            
+        if(move.x!=0 || move.z !=0)
+        {
             targetDirection = new Vector3(-move.x,0f,-move.z);
             anim.SetBool("isMoving",true);
         }
-        else{
+        else
+        {
             anim.SetBool("isMoving",false);
             targetDirection = currentDirection;
         }
+        if(!canMove)
+        {
         //float rotationAngle = Mathf.Acos(Vector3.Dot(targetDirection, currentDirection)) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(targetDirection), rotateLerp);
         //transform.LookAt(transform.position + targetDirection); 
+        }
     }
 }
