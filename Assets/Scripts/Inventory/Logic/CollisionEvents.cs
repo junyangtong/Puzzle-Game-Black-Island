@@ -19,11 +19,13 @@ public class CollisionEvents : MonoBehaviour
     {
         if (collision.gameObject.layer == 9)
         { 
-            //离开可交互物品
+            // 离开可交互物品
             CanInteractive = false;
             Debug.Log("离开可交互物品" + "Layer层级：" + collision.gameObject.layer);
-
+            
+            // 离开可交互物品时取消对话框并 恢复为游戏进行状态
             EventHandler.CallShowDialogueEvent(string.Empty);
+            EventHandler.CallGameStateChangeEvent(GameState.GamePlay);
         }
     }
 }

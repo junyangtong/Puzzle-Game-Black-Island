@@ -2836,6 +2836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requireItem: 0
   isDone: 0
+  amount: 7
   currentPassword: 1
   loopCount: 0
 --- !u!64 &799091657
@@ -4088,6 +4089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requireItem: 0
   isDone: 0
+  amount: 7
   currentPassword: 1
   loopCount: 0
 --- !u!64 &1023432348
@@ -4353,6 +4355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requireItem: 0
   isDone: 0
+  amount: 7
   currentPassword: 1
   loopCount: 0
 --- !u!64 &1081155823
@@ -5065,6 +5068,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requireItem: 0
   isDone: 0
+  amount: 7
   currentPassword: 1
   loopCount: 0
 --- !u!64 &1160336969
@@ -5543,7 +5547,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.41900003, y: 0.90586513}
   m_AnchorMax: {x: 0.586, y: 1}
-  m_AnchoredPosition: {x: -1.5, y: 3.0000153}
+  m_AnchoredPosition: {x: -1.5, y: 3}
   m_SizeDelta: {x: -1, y: 68}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1195420319
@@ -5946,13 +5950,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requireItem: 0
   isDone: 0
+  miniGameSceneToGo: {fileID: 712067796}
+  PerPassword: {fileID: 787337532}
   Password:
   - 2
   - 5
   - 3
   - 7
-  miniGameSceneToGo: {fileID: 712067796}
-  PerPassword: {fileID: 787337532}
 --- !u!1 &1259084933
 GameObject:
   m_ObjectHideFlags: 0
@@ -8311,6 +8315,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: unityIKtest
+      objectReference: {fileID: 0}
+    - target: {fileID: 8605539844766895424, guid: 950c73fbbb285ff46930e50301723f14,
+        type: 3}
+      propertyPath: speed
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8874144536132847273, guid: 950c73fbbb285ff46930e50301723f14,
         type: 3}

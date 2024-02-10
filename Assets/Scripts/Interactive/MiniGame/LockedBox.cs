@@ -30,13 +30,14 @@ public class LockedBox : Interactive
             currentPassword[i] = newLockedBox.currentPassword;
             
             //需要减去递增的周期
-            isEquit[i] = ((currentPassword[i]-amount*loopCount) == Password[i]) ? true : false;
-            Debug.Log(currentPassword[i]-amount*loopCount);
+            isEquit[i] = Comparefloat((currentPassword[i]-amount*loopCount) , Password[i]) ? true : false;
+            //Debug.Log(currentPassword[i]-amount*loopCount);
             
         }
         if(isEquit[1]&&isEquit[2]&&isEquit[3]&&isEquit[0])
         {
             Debug.Log("密码正确");
+            // 盒子开启
         }
     }
     private void Awake()
@@ -57,5 +58,22 @@ public class LockedBox : Interactive
     {
         EventHandler.CallGameStateChangeEvent(GameState.GamePlay);
         miniGameSceneToGo.SetActive(false);
+    }
+
+    /// <summary>
+    /// 解决动画协程产生的浮点数误差
+    /// </summary>
+    /// <param name="n1"></param>
+    /// <param name="n2"></param>
+    /// <returns></returns>
+    private bool Comparefloat(float n1,float n2)
+    {   
+        float max = n2+0.1f;
+        float min = n2-0.1f;
+        if(n1 < max && n1 > min)
+            return (true);
+        else
+            return (false);
+        
     }
 }
