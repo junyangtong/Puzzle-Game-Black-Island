@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
             
         if(move.x!=0 || move.z !=0)
         {
-            targetDirection = new Vector3(-move.x,0f,-move.z);
+            targetDirection = new Vector3(move.x,0f,move.z);
             anim.SetBool("isMoving",true);
         }
         else
