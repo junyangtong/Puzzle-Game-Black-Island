@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -907,7 +907,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Center: {x: 0, y: 0.59, z: 0}
 --- !u!95 &174175767
 Animator:
   serializedVersion: 5
@@ -1732,8 +1732,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 551451570}
-  m_LocalRotation: {x: -0.3384728, y: 0.00872761, z: -0.0031380616, w: -0.9409305}
-  m_LocalPosition: {x: 0.25826344, y: 17.430466, z: -16.663792}
+  m_LocalRotation: {x: -0.029637715, y: 0.70182294, z: 0.029302243, w: 0.7111313}
+  m_LocalPosition: {x: -4.4936886, y: 0.6233462, z: -4.395609}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2045,10 +2045,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   footSpacing: -0.1
-  footSpacingFront: 0.08
-  stepstance: 0.2
-  high: 0.05
-  speed: 8
+  footSpacingFront: 0.1
+  stepstance: 0.1
+  high: 0.1
+  speed: 12
   otherleg: {fileID: 1781760718}
 --- !u!1 &673974441
 GameObject:
@@ -3142,6 +3142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   rotateLerp: 0.1
+  bodyWave: {fileID: 0}
 --- !u!1001 &817128135
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3214,6 +3215,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: test
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 85b79bb83b626b248a5e070e56dcdf7d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3802,8 +3808,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689eb7a09c90cca418e7b80ff036f40c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1
   rotateLerp: 0.1
+  bodyWave: {fileID: 1138511928}
 --- !u!54 &838756786
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5280,7 +5287,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5f7e0cdcbb4d7204ebab209a89d8dc9f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5314,6 +5321,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1138511925}
+    - targetCorrespondingSourceObject: {fileID: 5340346515230931457, guid: 5f7e0cdcbb4d7204ebab209a89d8dc9f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1138511928}
+    - targetCorrespondingSourceObject: {fileID: 5340346515230931457, guid: 5f7e0cdcbb4d7204ebab209a89d8dc9f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1138511929}
   m_SourcePrefab: {fileID: 100100000, guid: 5f7e0cdcbb4d7204ebab209a89d8dc9f, type: 3}
 --- !u!4 &1138511916 stripped
 Transform:
@@ -5394,6 +5409,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1138511928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138511924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98a7d2900748204449b4a9f7ce572ea7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startWave: 0
+  amplitude: 0.03
+  frequency: 5
+--- !u!114 &1138511929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138511924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb7fd98307e07364cabacbff2b322c47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1139546148
 GameObject:
   m_ObjectHideFlags: 0
@@ -8421,6 +8463,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   rotateLerp: 0.1
+  bodyWave: {fileID: 0}
 --- !u!95 &1741681144
 Animator:
   serializedVersion: 5
@@ -8528,10 +8571,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   footSpacing: 0.1
-  footSpacingFront: 0.08
-  stepstance: 0.2
-  high: 0.05
-  speed: 8
+  footSpacingFront: 0.1
+  stepstance: 0.1
+  high: 0.1
+  speed: 12
   otherleg: {fileID: 656901684}
 --- !u!1 &1861540175
 GameObject:
@@ -9049,6 +9092,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 673974442}
     m_Modifications:
+    - target: {fileID: 1419547563080248030, guid: 950c73fbbb285ff46930e50301723f14,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4686922652899471914, guid: 950c73fbbb285ff46930e50301723f14,
         type: 3}
       propertyPath: speed

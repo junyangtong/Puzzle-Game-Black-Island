@@ -7,10 +7,11 @@ public class PlayerController : MonoBehaviour
     public float speed = 3;
     public float rotateLerp = 0.1f; // 旋转插值比例
     private CharacterController car;
-    private Animator anim;
+    //private Animator anim;
     private Transform player;
     private Vector3 targetDirection,currentDirection;
     private bool canMove = false;
+    public BodyWave bodyWave;
     private void OnEnable() 
     {
         EventHandler.GameStateChangeEvent += OnGameStateChangeEvent;
@@ -26,7 +27,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         car = GetComponent<CharacterController>();
-        anim = GetComponent<Animator>();
+        //anim = GetComponent<Animator>();
         player = this.transform;
     }
 
@@ -50,13 +51,15 @@ public class PlayerController : MonoBehaviour
             
         if(move.x!=0 || move.z !=0)
         {
-            targetDirection = new Vector3(move.x,0f,move.z);
-            anim.SetBool("isMoving",true);
+            targetDirection = new Vector3(-move.x,0f,-move.z);
+            //anim.SetBool("isMoving",true);
+            bodyWave.startWave = true;
         }
         else
         {
-            anim.SetBool("isMoving",false);
+            //anim.SetBool("isMoving",false);
             targetDirection = currentDirection;
+            bodyWave.startWave = false;
         }
         if(!canMove)
         {

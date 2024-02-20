@@ -9,7 +9,8 @@ public class RotateBody : MonoBehaviour
         RaycastHit hit;     //射线
         int Rmask = LayerMask.GetMask("ik");
         Vector3 Point_dir = Vector3.down;
-        if (Physics.Raycast(transform.position, Point_dir, out hit, 50.0f, Rmask))
+        Vector3 StartPos = transform.position + Vector3.up*2.0f;
+        if (Physics.Raycast(StartPos, Point_dir, out hit, 50.0f, Rmask))
         {
             //打印一条从物体到碰撞点的红色射线，hit.point世界空间中射线命中碰撞体的撞击点
             Debug.DrawLine(transform.position, hit.point, Color.red);
