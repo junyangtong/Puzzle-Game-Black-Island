@@ -28,7 +28,7 @@ public class Target : MonoBehaviour
     void Update()
     {
         transform.position = currentposition;
-        Ray ray = new Ray(body.position + (body.up*footSpacingFront) + (body.right*footSpacing), Vector3.down);
+        Ray ray = new Ray(body.position + (body.forward*footSpacingFront) + (body.right*footSpacing), Vector3.down);    // 设置射线发射方向
         if (Physics.Raycast(ray,out RaycastHit info, 10, terrainLayer.value))
         {
             if (Vector3.Distance(newposition, info.point) > stepstance && !otherleg.IsMoving() && lerp >= 1)
