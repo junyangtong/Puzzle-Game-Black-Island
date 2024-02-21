@@ -19,6 +19,27 @@ public class Target : MonoBehaviour
 
     public Target otherleg;                //约束
 
+    private void OnEnable() 
+    {
+        EventHandler.OffsetCharacterTarget += OnOffsetCharacterTarget;
+    }
+    private void OnDisable() 
+    {
+        EventHandler.OffsetCharacterTarget -= OnOffsetCharacterTarget;
+    }
+    //运行时更新target偏移量 在playercontroller使用
+    private void OnOffsetCharacterTarget(bool isMove)
+    {
+        if(isMove)
+        {
+            footSpacingFront = 0.1f;
+        }
+        else
+        {
+            footSpacingFront = -0.05f;
+        }
+    }
+            
     private void Start()
     {
         newposition = transform.position;

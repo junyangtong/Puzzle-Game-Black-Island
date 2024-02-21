@@ -42,4 +42,10 @@ public static class EventHandler
     {
         CheckGameStateEvent?.Invoke();
     }
+    //角色开始移动时调整Target的位置
+    public static event Action<bool> OffsetCharacterTarget;
+    public static void CallOffsetCharacterTarget(bool isMove)
+    {
+        OffsetCharacterTarget?.Invoke(isMove);
+    }
 }

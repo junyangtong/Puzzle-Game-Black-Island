@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private Transform player;
     private Vector3 targetDirection,currentDirection;
     private bool canMove = false;
+    private bool isMove = false;
     public BodyWave bodyWave;
     private void OnEnable() 
     {
@@ -53,12 +54,16 @@ public class PlayerController : MonoBehaviour
         {
             targetDirection = new Vector3(move.x,0f,move.z);
             //anim.SetBool("isMoving",true);
+            isMove = true;
+            EventHandler.CallOffsetCharacterTarget(isMove);
             bodyWave.startWave = true;
         }
         else
         {
             //anim.SetBool("isMoving",false);
             targetDirection = currentDirection;
+            isMove = false;
+            EventHandler.CallOffsetCharacterTarget(isMove);
             bodyWave.startWave = false;
         }
         if(!canMove)
