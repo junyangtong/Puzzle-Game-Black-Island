@@ -30,10 +30,10 @@ public static class EventHandler
     }
 
     //提示标签
-    public static event Action<ItemName,bool> UpdateItemNameEvent;
-    public static void CallUpdateItemNameEvent(ItemName itemName,bool isSelected)
+    public static event Action<string,bool> UpdateItemNameEvent;
+    public static void CallUpdateItemNameEvent(string itemTooltip,bool isSelected)
     {
-        UpdateItemNameEvent?.Invoke(itemName,isSelected);
+        UpdateItemNameEvent?.Invoke(itemTooltip,isSelected);
     }
 
     //检查密码是否匹配

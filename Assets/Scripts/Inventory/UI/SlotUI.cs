@@ -28,9 +28,9 @@ public class SlotUI : MonoBehaviour,IPointerClickHandler
 
         InventoryManager.Instance.isSelected = isSelectedtemp;
         isSelected = InventoryManager.Instance.isSelected;
-
+        
         //呼叫方法 修改提示词
-        EventHandler.CallUpdateItemNameEvent(currentItem.itemName,isSelected);
+        EventHandler.CallUpdateItemNameEvent(currentItem.itemTooltip,isSelected);
         
         //呼叫方法 判断是否选择物品
         EventHandler.CallItemSelectedEvent(currentItem,isSelected);

@@ -15,7 +15,10 @@ MonoBehaviour:
   itemDatailsList:
   - itemName: 1
     itemSprite: {fileID: 21300000, guid: 8780cf6659ea64c4bb51c529d080d667, type: 3}
+    itemTooltip: "\u8FD9\u662F\u4E00\u4E2A\u86CB"
   - itemName: 2
     itemSprite: {fileID: 21300000, guid: 3c3216870affe5b44852f307b437481b, type: 3}
+    itemTooltip: "\u4E00\u4E2A\u79CD\u5B50"
   - itemName: 0
     itemSprite: {fileID: 21300000, guid: e9c52f3549a43fc4195e5191485d0956, type: 3}
+    itemTooltip: "\u672A\u9009\u62E9..."

@@ -10,6 +10,19 @@ public class BodyWave : MonoBehaviour
     public float amplitude = 10f;//振幅
     public float frequency = 1f;//频率
 
+    private void OnEnable() 
+    {
+        EventHandler.OffsetCharacterTarget += OnOffsetCharacterTarget;
+    }
+    private void OnDisable() 
+    {
+        EventHandler.OffsetCharacterTarget -= OnOffsetCharacterTarget;
+    }
+    //运行时更新target偏移量 在playercontroller传参
+    private void OnOffsetCharacterTarget(bool isMove)
+    {
+        startWave = isMove;
+    }
     private void Awake()
     {
         startWave = false;

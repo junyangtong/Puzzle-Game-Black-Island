@@ -10,6 +10,8 @@ public class InventoryManager : Singleton<InventoryManager>
     public GameObject slotGrid;
     public GameObject slotPrefab;   // prefab
     public bool isSelected;
+    private ItemDetails noneItemDetails;
+
     [SerializeField] private List<ItemName> itemList = new List<ItemName>();
     private void OnEnable()
     {
@@ -28,7 +30,7 @@ public class InventoryManager : Singleton<InventoryManager>
             SlotUI slotUI = slotGrid.transform.GetChild(i).GetComponent<SlotUI>();
             if(slotUI.currentItem.itemName == itemName)
             {
-                EventHandler.CallUpdateItemNameEvent(ItemName.None,false);
+                InitializeSelectionState();
                 Destroy(slotUI.gameObject);
                 Debug.Log("移除背包中的"+slotUI.currentItem.itemName);
                 itemList.Remove(itemName);
@@ -59,14 +61,11 @@ public class InventoryManager : Singleton<InventoryManager>
         slotUI.SetItem(itemDetails);
         Debug.Log("拾取"+itemDetails.itemName);
     }
-
-    //运行时设置物体Tag
-    /*public void SetGameObjectTag(GameObject gameObject, string tag)
+    public void InitializeSelectionState()
     {
-        if (!UnityEditorInternal.InternalEditorUtility.tags.Equals(tag)) // 如果tag列表中没有这个tag
-        {
-            UnityEditorInternal.InternalEditorUtility.AddTag(tag); // 在tag列表中添加这个tag
-        }
-        gameObject.tag = tag;
-    }*/
+        noneItemDetails = itemData.GetItemDetails(ItemName.None);
+        isSelected = false;
+        EventHandler.CallUpdateItemNameEvent(noneItemDetails.itemTooltip,isSelected);
+        Debug.Log("初始化选择道具");
+    }
 }

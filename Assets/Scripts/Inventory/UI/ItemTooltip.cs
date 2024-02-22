@@ -14,23 +14,8 @@ public class ItemTooltip : MonoBehaviour
     {
         EventHandler.UpdateItemNameEvent -= UpdateItemName;
     }
-    public void UpdateItemName(ItemName itemName,bool isSelected)
+    public void UpdateItemName(string itemTooltip,bool isSelected)
     {
-        if(isSelected)
-        {
-            Debug.Log("当前选择"+itemName);
-        }
-        else
-        {
-            Debug.Log("未选择");
-        }
-        itemNameText.text = itemName switch
-        {
-            ItemName.Egg => "一个普通的蛋",
-            ItemName.Seed => "一颗种子",
-            ItemName.None => "未选择...",
-            _ => ""
-        };
-        
+        itemNameText.text = itemTooltip;
     }
 }

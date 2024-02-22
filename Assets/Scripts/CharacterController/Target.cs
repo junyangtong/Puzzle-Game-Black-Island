@@ -27,7 +27,7 @@ public class Target : MonoBehaviour
     {
         EventHandler.OffsetCharacterTarget -= OnOffsetCharacterTarget;
     }
-    //运行时更新target偏移量 在playercontroller使用
+    //运行时更新target偏移量 在playercontroller传参
     private void OnOffsetCharacterTarget(bool isMove)
     {
         if(isMove)

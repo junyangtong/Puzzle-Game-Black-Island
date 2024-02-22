@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1823,6 +1823,7 @@ MonoBehaviour:
   itemDetails:
     itemName: 0
     itemSprite: {fileID: 0}
+    itemTooltip: 
   slotGrid: {fileID: 491251077}
   slotPrefab: {fileID: 7448849799999728523, guid: fe8ae79f351f56947b669b89088751e7,
     type: 3}
@@ -3842,7 +3843,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   rotateLerp: 0.1
-  bodyWave: {fileID: 0}
 --- !u!1 &823045242
 GameObject:
   m_ObjectHideFlags: 0
@@ -4390,7 +4390,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   rotateLerp: 0.1
-  bodyWave: {fileID: 1138511928}
 --- !u!54 &838756786
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7265,9 +7264,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689eb7a09c90cca418e7b80ff036f40c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 5
   rotateLerp: 0.1
-  bodyWave: {fileID: 1760307193}
 --- !u!143 &1224103573
 CharacterController:
   m_ObjectHideFlags: 0
@@ -7830,7 +7828,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   rotateLerp: 0.1
-  bodyWave: {fileID: 1933041937}
 --- !u!1 &1320635045
 GameObject:
   m_ObjectHideFlags: 0
@@ -10018,9 +10015,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689eb7a09c90cca418e7b80ff036f40c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 5
   rotateLerp: 0.1
-  bodyWave: {fileID: 1717001763}
 --- !u!143 &1717001770
 CharacterController:
   m_ObjectHideFlags: 0
@@ -10249,7 +10245,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   rotateLerp: 0.1
-  bodyWave: {fileID: 0}
 --- !u!95 &1741681144
 Animator:
   serializedVersion: 5

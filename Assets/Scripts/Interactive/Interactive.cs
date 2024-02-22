@@ -23,6 +23,7 @@ public class Interactive : MonoBehaviour
         }
         if(itemName != requireItem && !isDone)
         {
+            InventoryManager.Instance.InitializeSelectionState();
             Debug.Log("物品错误无法使用");
         }
     } 

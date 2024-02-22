@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 targetDirection,currentDirection;
     private bool canMove = false;
     private bool isMove = false;
-    public BodyWave bodyWave;
+    
     private void OnEnable() 
     {
         EventHandler.GameStateChangeEvent += OnGameStateChangeEvent;
@@ -56,7 +56,6 @@ public class PlayerController : MonoBehaviour
             //anim.SetBool("isMoving",true);
             isMove = true;
             EventHandler.CallOffsetCharacterTarget(isMove);
-            bodyWave.startWave = true;
         }
         else
         {
@@ -64,7 +63,6 @@ public class PlayerController : MonoBehaviour
             targetDirection = currentDirection;
             isMove = false;
             EventHandler.CallOffsetCharacterTarget(isMove);
-            bodyWave.startWave = false;
         }
         if(!canMove)
         {
