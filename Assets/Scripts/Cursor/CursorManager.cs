@@ -26,13 +26,7 @@ public class CursorManager : MonoBehaviour
         if(isSelected)
         {
             currentItem = itemDetails.itemName;
-            Debug.Log("当前选择"+itemDetails.itemName);
-            // TODO:替换角色手中的模型
         }
-        else
-        {
-            Debug.Log("未选择");
-        } 
     }
 
     void Update()
@@ -92,14 +86,5 @@ public class CursorManager : MonoBehaviour
                         
                 }
             }
-    }
-    
-     /// <summary>
-    /// 与此类无关 初始化背包
-    /// </summary>
-    private void Awake() {
-        //开始前创建空物品栏
-        InventoryManager.Instance.AddItem(ItemName.None);
-    //    EventHandler.CallUpdateItemNameEvent(ItemName.None,false);
     }
 }

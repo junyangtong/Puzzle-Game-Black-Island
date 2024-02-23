@@ -36,5 +36,14 @@ public class SlotUI : MonoBehaviour,IPointerClickHandler
         EventHandler.CallItemSelectedEvent(currentItem,isSelected);
 
     }
+    //在InventoryManager调用
+    public void HighLight(bool isHighLight)
+    {
+        //高亮显示
+        if(isHighLight)
+            itemImage.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+        else
+            itemImage.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+    }
     
 }

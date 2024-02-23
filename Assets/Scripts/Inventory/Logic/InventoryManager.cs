@@ -13,13 +13,39 @@ public class InventoryManager : Singleton<InventoryManager>
     private ItemDetails noneItemDetails;
 
     [SerializeField] private List<ItemName> itemList = new List<ItemName>();
+    /// <summary>
+    /// 初始化背包
+    /// </summary>
+    private void Start() 
+    {
+        //开始前创建空物品栏
+        AddItem(ItemName.None);
+        InitializeSelectionState();
+    }
     private void OnEnable()
     {
         EventHandler.ItemUsedEvent += OnItemUsedEvent;
+        EventHandler.ItemSelectedEvent += OnItemSelectedEvent;
     }
     private void OnDisable() 
     {
         EventHandler.ItemUsedEvent -= OnItemUsedEvent;
+        EventHandler.ItemSelectedEvent -= OnItemSelectedEvent;
+    }
+    private void OnItemSelectedEvent(ItemDetails itemDetails,bool isSelected)
+    {   
+         // 高亮显示
+         HighLightItem(itemDetails.itemName);
+
+         if(isSelected)
+        {
+            Debug.Log("当前选择"+itemDetails.itemName);
+            // TODO:替换角色手中的模型
+        }
+        else
+        {
+            Debug.Log("未选择");
+        } 
     }
     //使用物品时移除背包中的对应物品
     private void OnItemUsedEvent(ItemName itemName)
@@ -61,11 +87,26 @@ public class InventoryManager : Singleton<InventoryManager>
         slotUI.SetItem(itemDetails);
         Debug.Log("拾取"+itemDetails.itemName);
     }
+    private void HighLightItem(ItemName itemName)
+    {
+        int children = slotGrid.transform.childCount;
+        for (int i = 0; i < children; i++)
+        {   
+            SlotUI slotUI = slotGrid.transform.GetChild(i).GetComponent<SlotUI>();
+            if(slotUI.currentItem.itemName == itemName)
+            {
+               slotUI.HighLight(true);
+            }
+            else
+               slotUI.HighLight(false);
+        }
+    }
     public void InitializeSelectionState()
     {
         noneItemDetails = itemData.GetItemDetails(ItemName.None);
-        isSelected = false;
+        isSelected = false; 
         EventHandler.CallUpdateItemNameEvent(noneItemDetails.itemTooltip,isSelected);
-        Debug.Log("初始化选择道具");
+        HighLightItem(ItemName.None);
+        Debug.Log("初始化背包状态");
     }
 }
