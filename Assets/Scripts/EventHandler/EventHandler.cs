@@ -48,4 +48,10 @@ public static class EventHandler
     {
         OffsetCharacterTarget?.Invoke(isMove);
     }
+    //设置背包按钮
+    public static event Action<ItemDetails>SetOpenBagButtonEvent;
+    public static void CallSetOpenBagButtonEvent(ItemDetails itemDetails)
+    {
+        SetOpenBagButtonEvent?.Invoke(itemDetails);
+    }
 }

@@ -18,7 +18,7 @@ public class SlotUI : MonoBehaviour,IPointerClickHandler
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        //设置isSelected
+        // 设置isSelected
         isSelectedtemp = InventoryManager.Instance.isSelected;
         
         if(currentItem.itemName == ItemName.None)
@@ -29,17 +29,19 @@ public class SlotUI : MonoBehaviour,IPointerClickHandler
         InventoryManager.Instance.isSelected = isSelectedtemp;
         isSelected = InventoryManager.Instance.isSelected;
         
-        //呼叫方法 修改提示词
+        // 呼叫方法 修改提示词
         EventHandler.CallUpdateItemNameEvent(currentItem.itemTooltip,isSelected);
         
-        //呼叫方法 判断是否选择物品
+        // 呼叫方法 判断是否选择物品
         EventHandler.CallItemSelectedEvent(currentItem,isSelected);
 
+        // 呼叫方法 设置打开背包按钮UI
+        EventHandler.CallSetOpenBagButtonEvent(currentItem);
     }
-    //在InventoryManager调用
+    // 在InventoryManager调用
     public void HighLight(bool isHighLight)
     {
-        //高亮显示
+        // 高亮显示
         if(isHighLight)
             itemImage.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
         else

@@ -107,6 +107,7 @@ public class InventoryManager : Singleton<InventoryManager>
         isSelected = false; 
         EventHandler.CallUpdateItemNameEvent(noneItemDetails.itemTooltip,isSelected);
         HighLightItem(ItemName.None);
+        EventHandler.CallSetOpenBagButtonEvent(noneItemDetails);// 初始化打开背包按钮UI
         Debug.Log("初始化背包状态");
     }
 }
