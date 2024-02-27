@@ -5,7 +5,7 @@ using UnityEngine;
 public class BodyWave : MonoBehaviour
 {
     Vector3 trans1;//记录原位置
-    Vector2 trans2;//简谐运动变化的位置，计算得出
+    Vector3 trans2;//简谐运动变化的位置，计算得出
     public bool startWave;
     public float amplitude = 10f;//振幅
     public float frequency = 1f;//频率

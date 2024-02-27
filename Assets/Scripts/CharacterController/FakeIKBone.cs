@@ -13,7 +13,7 @@ using UnityEngine;
     // 骨骼恢复速度
     public float RecoverSpeed = 20;
     // 世界坐标系的y轴
-    private Vector3 upaxis { get { return Vector3.up; } }
+    private Vector3 upaxis { get { return Vector3.right; } }
     // 世界坐标系的上方向
     protected Vector3 transformUpAxis { get { return Bone.rotation * upaxis; } }
     // 本地坐标系的上方向
