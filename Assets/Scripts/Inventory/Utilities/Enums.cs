@@ -1,6 +1,6 @@
 public enum ItemName
 {
-    None, Egg, Seed
+    None, Egg, Seed, Twig, FishingRods, Fish
 }
 
 public enum GameState
