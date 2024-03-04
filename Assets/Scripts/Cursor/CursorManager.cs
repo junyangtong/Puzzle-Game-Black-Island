@@ -71,7 +71,7 @@ public class CursorManager : MonoBehaviour
 
                             case"CanBeUseProp":
                                 var interactive1 = clickObject.collider.gameObject.GetComponent<Interactive>();
-                                interactive1?.ClickItem();
+                                interactive1?.OnClickedActionNoRequire();
                                 break;
                         }
                     }
@@ -80,7 +80,7 @@ public class CursorManager : MonoBehaviour
                             {
                                 case "FreelyUseProp":
                                     var interactive2 = clickObject.collider.gameObject.GetComponent<Interactive>();
-                                    interactive2?.ClickItem();
+                                    interactive2?.OnClickedActionNoRequire();
                                     break;
                             }
                         

@@ -4,18 +4,21 @@ using UnityEditor;
 
 public class HorizontalGUI : EditorWindow
 {
-    [MenuItem("地编工具/快速切换时间线")]
+    [MenuItem("地编工具/地编工具")]
     public static void HorizontalGUIEnum()
     {
-        EditorWindow.GetWindowWithRect<HorizontalGUI>(new Rect(0, 0, 500, 30), false, "切换时间线");
+        EditorWindow.GetWindow<HorizontalGUI>(false, "地编工具");
     }
     /// <summary>
     /// 窗口内显示的GUI面板
     /// </summary>
     private void OnGUI()
     {
-        GUILayout.BeginHorizontal();
+        EditorGUILayout.BeginHorizontal("Box");
+        EditorGUILayout.LabelField("快速切换时间线");
+        GUILayout.EndHorizontal();
 
+        GUILayout.BeginHorizontal();
         if (GUILayout.Button("时间线1"))
         {
             ChangeToH1();
@@ -29,8 +32,8 @@ public class HorizontalGUI : EditorWindow
         {
             ChangeToH3();
         }
-
         GUILayout.EndHorizontal();
+
     }
     static void ChangeToH1(){
 		Transform[] CUs=Resources.FindObjectsOfTypeAll<Transform> ();

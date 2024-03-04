@@ -30,7 +30,7 @@ public class Interactive : MonoBehaviour
     /// <summary>
     /// 不需要使用物品就可以交互
     /// </summary>
-    public void ClickItem()
+    public void OnClickedActionNoRequire()
     {
         OnClickedAction();
     }

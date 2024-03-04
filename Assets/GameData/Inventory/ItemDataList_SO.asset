@@ -31,3 +31,6 @@ MonoBehaviour:
   - itemName: 5
     itemSprite: {fileID: 21300000, guid: 3f1794709599ce64b86465e50212853c, type: 3}
     itemTooltip: "\u4E00\u6761\u9C7C"
+  - itemName: 6
+    itemSprite: {fileID: 21300000, guid: 5979c2416156170449d4727da04aa7f4, type: 3}
+    itemTooltip: "\u9C7C\u9AA8\u5934"
