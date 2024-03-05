@@ -11,7 +11,6 @@ public class Nest : Interactive
 
     private void Awake()
     {
-        Bird.SetActive(false);
         dialogueController = GetComponent<DialogueController>();
         coll = GetComponent<CapsuleCollider>();
     }
