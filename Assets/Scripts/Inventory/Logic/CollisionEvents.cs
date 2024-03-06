@@ -10,9 +10,18 @@ public class CollisionEvents : MonoBehaviour
     {
         if (collision.gameObject.layer == 9)
         { 
-            //靠近可交互物品
+            //进入可交互物品
             CanInteractive = true;
-            Debug.Log("靠近可交互物品" + "Layer层级：" + collision.gameObject.layer);
+            Debug.Log("进入可交互物品" + "Layer层级：" + collision.gameObject.layer);
+        }
+    }
+    void OnTriggerStay(Collider collision)
+    {
+        if (collision.gameObject.layer == 9)
+        { 
+            //在可交互物品范围内
+            CanInteractive = true;
+            //Debug.Log("在可交互物品范围内" + "Layer层级：" + collision.gameObject.layer);
         }
     }
     void OnTriggerExit(Collider collision)
