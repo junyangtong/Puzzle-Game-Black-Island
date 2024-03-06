@@ -10,6 +10,8 @@ public class InventoryManager : Singleton<InventoryManager>
     public GameObject slotGrid;
     public GameObject slotPrefab;   // prefab
     public bool isSelected;
+    public bool holdItem;
+    public ItemName currentItem;
     private ItemDetails noneItemDetails;
 
     [SerializeField] private List<ItemName> itemList = new List<ItemName>();
@@ -35,10 +37,11 @@ public class InventoryManager : Singleton<InventoryManager>
     private void OnItemSelectedEvent(ItemDetails itemDetails,bool isSelected)
     {   
          // 高亮显示
-         HighLightItem(itemDetails.itemName);
-
-         if(isSelected)
+        HighLightItem(itemDetails.itemName);
+        holdItem = isSelected;
+        if(isSelected)
         {
+            currentItem = itemDetails.itemName;
             Debug.Log("当前选择"+itemDetails.itemName);
             // TODO:替换角色手中的模型
         }
@@ -108,6 +111,8 @@ public class InventoryManager : Singleton<InventoryManager>
         EventHandler.CallUpdateItemNameEvent(noneItemDetails.itemTooltip,isSelected);
         HighLightItem(ItemName.None);
         EventHandler.CallSetOpenBagButtonEvent(noneItemDetails);// 初始化打开背包按钮UI
+        currentItem = noneItemDetails.itemName;
+        holdItem = false;
         Debug.Log("初始化背包状态");
     }
 }

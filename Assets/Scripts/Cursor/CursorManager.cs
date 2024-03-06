@@ -11,7 +11,7 @@ public class CursorManager : MonoBehaviour
 
     public CollisionEvents collisionEvents;
 
-    private void OnEnable() 
+    /*private void OnEnable() 
     {
         EventHandler.ItemSelectedEvent += OnItemSelectedEvent;
     }
@@ -27,7 +27,7 @@ public class CursorManager : MonoBehaviour
         {
             currentItem = itemDetails.itemName;
         }
-    }
+    }*/
 
     void Update()
     {
@@ -59,8 +59,10 @@ public class CursorManager : MonoBehaviour
 
                             case"InteractiveProp":
                                 var interactive = clickObject.collider.gameObject.GetComponent<Interactive>();
+                                holdItem = InventoryManager.Instance.holdItem;
                                 if(holdItem)
                                     {
+                                        currentItem = InventoryManager.Instance.currentItem;
                                         interactive?.CheckItem(currentItem);
                                         //if(interactive.isDone)
                                             holdItem =false;//如果物品成功使用了 则取消选择状态
