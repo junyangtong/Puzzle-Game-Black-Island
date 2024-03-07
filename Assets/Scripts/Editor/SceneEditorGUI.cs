@@ -2,12 +2,12 @@
 using UnityEngine;
 using UnityEditor;
 
-public class HorizontalGUI : EditorWindow
+public class SceneEditorGUI : EditorWindow
 {
     [MenuItem("地编工具/地编工具")]
     public static void HorizontalGUIEnum()
     {
-        EditorWindow.GetWindow<HorizontalGUI>(false, "地编工具");
+        EditorWindow.GetWindow<SceneEditorGUI>(false, "地编工具");
     }
     /// <summary>
     /// 窗口内显示的GUI面板

@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 3;
     public float rotateLerp = 0.1f; // 旋转插值比例
+    public GameObject StepParticall;
+    public GameObject StepParticalr;
     private CharacterController car;
     private Animator anim;
     private Transform player;
@@ -55,6 +57,8 @@ public class PlayerController : MonoBehaviour
             targetDirection = new Vector3(move.x,0f,move.z);
             anim.SetBool("isMoving",true);
             isMove = true;
+            StepParticall.SetActive(true);
+            StepParticalr.SetActive(true);
             EventHandler.CallOffsetCharacterTarget(isMove);
         }
         else
@@ -62,12 +66,15 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isMoving",false);
             targetDirection = currentDirection;
             isMove = false;
+            StepParticall.SetActive(false);
+            StepParticalr.SetActive(false);
             EventHandler.CallOffsetCharacterTarget(isMove);
         }
         if(!canMove)
         {
         //float rotationAngle = Mathf.Acos(Vector3.Dot(targetDirection, currentDirection)) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(targetDirection), rotateLerp);
+
         //transform.LookAt(transform.position + targetDirection); 
         }
     }
