@@ -57,8 +57,8 @@ public class PlayerController : MonoBehaviour
             targetDirection = new Vector3(move.x,0f,move.z);
             anim.SetBool("isMoving",true);
             isMove = true;
-            StepParticall.SetActive(true);
-            StepParticalr.SetActive(true);
+            //StepParticall.SetActive(true);
+            //StepParticalr.SetActive(true);
             EventHandler.CallOffsetCharacterTarget(isMove);
         }
         else
@@ -66,8 +66,8 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isMoving",false);
             targetDirection = currentDirection;
             isMove = false;
-            StepParticall.SetActive(false);
-            StepParticalr.SetActive(false);
+            //StepParticall.SetActive(false);
+            //StepParticalr.SetActive(false);
             EventHandler.CallOffsetCharacterTarget(isMove);
         }
         if(!canMove)
