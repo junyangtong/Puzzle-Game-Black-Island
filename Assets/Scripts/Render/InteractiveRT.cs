@@ -21,6 +21,7 @@ public class InteractiveRT : MonoBehaviour
 
     private void LateUpdate()
     {
+        m_Target = GameObject.FindWithTag("Player").transform;
         transform.position = new Vector3(m_Target.transform.position.x, transform.position.y, m_Target.transform.position.z);
         Shader.SetGlobalVector("_Position", transform.position);
     }
