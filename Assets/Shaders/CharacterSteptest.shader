@@ -1,8 +1,8 @@
-Shader "Unlit/CharacterSteptest"
+Shader "MyShader/Ground"
 {
     Properties
     {
-        _MainTex ("Texture", 2D) = "white" {}
+        _MainTex            ("Texture", 2D) = "white" {}
         _RippleColor        ("脚步颜色", Color) = (1, 1, 1, 1) 
     }
     SubShader
@@ -32,9 +32,11 @@ Shader "Unlit/CharacterSteptest"
             float3 _Position;
             float _OrthographicCamSize;
             float4 _RippleColor;
+            float4 _MainTex_ST;
             CBUFFER_END
             TEXTURE2D(_GlobalRipplesRT);
             TEXTURE2D(_MainTex);
+            SAMPLER(sampler_MainTex);
             // 贴图采样器
             SamplerState smp_Point_Repeat;
             // 顶点着色器的输入
@@ -66,13 +68,15 @@ Shader "Unlit/CharacterSteptest"
             {
                 v2f o;
                 o.vertex = TransformObjectToHClip(v.vertex);
-                o.uv = v.uv;
+                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                 o.posWS = TransformObjectToWorld(v.vertex);
                 return o;
             }
 
             float4 frag (v2f i) : SV_Target
             {
+                //基础颜色
+                float3 basecol = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex,i.uv).rgb;  //采样RenderTexture
                 //脚步交互
                 float2 RTuv = i.posWS.xz - _Position.xz;                                                // 像素点相对于相机中心的距离
                 RTuv = RTuv / (_OrthographicCamSize * 2);                                               // 转为 -0.5~0.5
@@ -81,9 +85,49 @@ Shader "Unlit/CharacterSteptest"
                 ripples = step(2, ripples * 3);
                 float3 ripplesCol = ripples * _RippleColor.rgb;
 
-                return float4(ripplesCol,1.0);
+                return float4(ripplesCol + basecol,1.0);
             }
             ENDHLSL
         }
+
+        // This pass is used when drawing to a _CameraNormalsTexture texture
+        Pass
+        {
+            Name "DepthNormals"
+            Tags{"LightMode" = "DepthNormals"}
+ 
+            ZWrite On
+            Cull[_Cull]
+ 
+            HLSLPROGRAM
+            #pragma exclude_renderers gles gles3 glcore
+            #pragma target 4.5
+ 
+            #pragma vertex DepthNormalsVertex
+            #pragma fragment DepthNormalsFragment
+ 
+            // -------------------------------------
+            // Material Keywords
+            #pragma shader_feature_local _NORMALMAP
+            #pragma shader_feature_local _PARALLAXMAP
+            #pragma shader_feature_local _ _DETAIL_MULX2 _DETAIL_SCALED
+            #pragma shader_feature_local_fragment _ALPHATEST_ON
+            #pragma shader_feature_local_fragment _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+ 
+            // -------------------------------------
+            // Unity defined keywords
+            #pragma multi_compile_fragment _ LOD_FADE_CROSSFADE
+            // Universal Pipeline keywords
+            #pragma multi_compile_fragment _ _WRITE_RENDERING_LAYERS
+ 
+            //--------------------------------------
+            // GPU Instancing
+            #pragma multi_compile_instancing
+            #pragma multi_compile _ DOTS_INSTANCING_ON
+ 
+            #include "Packages/com.unity.render-pipelines.universal/Shaders/LitInput.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/Shaders/LitDepthNormalsPass.hlsl"
+            ENDHLSL
+         }
     }
 }

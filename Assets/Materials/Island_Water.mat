@@ -37,7 +37,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
         m_Texture: {fileID: 2800000, guid: 573a67ec857efab4a993e8a40bad0467, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 1, y: 0.26}
         m_Offset: {x: 0, y: 0}
     - _RainTex:
         m_Texture: {fileID: 2800000, guid: 56b55bd56ed94704bbd55f9bbd10ec5b, type: 3}
@@ -76,11 +76,11 @@ Material:
     - _MetallicInt: 0.5
     - _MinTessDistance: 1
     - _NormalIntensity: 0.6
-    - _NormalScale: 4.8
+    - _NormalScale: 8.3
     - _RainInt: 0
     - _Smoothness: 0.273
-    - _SpecularRange: 5
-    - _SpecularStrenght: 0.32
+    - _SpecularRange: 10
+    - _SpecularStrenght: 1.68
     - _Steepness: 0.24
     - _Tess: 2
     - _WarpInt: 0.05
