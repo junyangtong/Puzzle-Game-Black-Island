@@ -66,7 +66,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaRange: 1.23
-    - _Amplitude: 0.056
+    - _Amplitude: 0.042
     - _CubemapMip: 0
     - _DepthRange: 10.6
     - _FlowSpeed: 1
@@ -84,7 +84,7 @@ Material:
     - _Steepness: 0.24
     - _Tess: 2
     - _WarpInt: 0.05
-    - _WaveLength: 3.05
+    - _WaveLength: 3.74
     - _WaveXSpeed: 0.5
     - _WaveYSpeed: 0.5
     - _WindDir: 78
