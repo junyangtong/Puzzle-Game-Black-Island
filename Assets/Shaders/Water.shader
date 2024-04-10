@@ -351,7 +351,7 @@ Shader "Island/Water"
                     //折射
                     float4 refraction = SAMPLE_TEXTURE2D(_CameraOpaqueTexture, smp_Point_Repeat, warpScreenPos);
                     float alphaRange = saturate(viewWaterDepth / _AlphaRange);
-                    float3 diffColor =  lerp(refraction.rgb,depthCol.rgb,alphaRange) * light.color.rgb  * _Diffcol.rgb;
+                    float3 diffColor =  lerp(refraction.rgb,depthCol.rgb,alphaRange) * _Diffcol.rgb;
                     //岸边浪花
                     float4 foamTexCol = SAMPLE_TEXTURE2D(_FoamTex,smp_Point_Repeat,float2(sin( _Time.y * _Foam.y + min(_Foam.x, viewWaterDepth01)/_Foam.x),0.5));
                     float foamRange = 1 - (min(_Foam.z , viewWaterDepth01) / _Foam.z );                     // * step(viewWaterDepth01,_Edge)// * step(viewWaterDepth01,_Edge) * step(ratioZ,_Edge)
@@ -375,7 +375,7 @@ Shader "Island/Water"
                     float3 spray = lerp(maskColor , maskColor2 ,maskSwitch) * _RainInt * _RippleColor.rgb;
                     //高光
                     float3 specular = _SpecularColor.rgb * _SpecularStrenght * pow(max(0,nh),_SpecularRange);
-                    specular = smoothstep(0.2,1,specular);
+                    specular = smoothstep(0.2,1,specular) * light.color.rgb;
                     //反射
                     float4 Cubemap = SAMPLE_TEXTURECUBE_LOD(unity_SpecCube0,samplerunity_SpecCube0,vrDirWS,0);
                     float4 ReflectionTex = SAMPLE_TEXTURE2D(_ReflectionTex, smp_Point_Repeat, warpScreenPos);
