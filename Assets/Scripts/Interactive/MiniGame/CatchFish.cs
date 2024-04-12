@@ -8,6 +8,8 @@ public class CatchFish : MonoBehaviour
     public GameObject obstacle;
     TimerMgr timer;
     int TimerID;
+    public Transform CameraController;
+    public bool isRotate;
 
     void Start()
     {
@@ -21,11 +23,35 @@ public class CatchFish : MonoBehaviour
     void Update()
     {
         timer.Update();
+        if(isRotate)
+        CameraRotateRight();
+        if(!isRotate)
+        CameraRotateLeft();
     }
     
     private void FishLaunch()
     {
         // 实例化为位置 (0, 0, 0) 和零旋转。
         Instantiate(obstacle, transform.position, Quaternion.identity);
+    }
+    public void Rotateleft()
+    {
+        isRotate = true;
+    }
+    public void Rotateright()
+    {
+        isRotate = false;
+    }
+    public void CameraRotateRight()
+    {
+        Vector3 dir = new Vector3(1,0,0);
+        Quaternion targetQua = Quaternion.LookRotation(dir);
+        CameraController.rotation = Quaternion.Slerp(CameraController.rotation,targetQua,2 * Time.deltaTime);
+    }
+    public void CameraRotateLeft()
+    {
+        Vector3 dir = new Vector3(0,0,1);
+        Quaternion targetQua = Quaternion.LookRotation(dir);
+        CameraController.rotation = Quaternion.Slerp(CameraController.rotation,targetQua,2 * Time.deltaTime);
     }
 }
