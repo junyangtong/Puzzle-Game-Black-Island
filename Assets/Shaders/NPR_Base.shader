@@ -15,6 +15,9 @@ Shader "NPR/NPR_Base"
         [Header(Step)]
         [Toggle] _T1        ("地面?显示脚印?", Float) = 0
         _RippleColor        ("脚印颜色", Color) = (1, 1, 1, 1) 
+        _AlphaClip       ("透明裁剪",Range(0,1)) = 0.0
+        [Enum(UnityEngine.Rendering.CullMode)] _Cull ("Cull Mode", Float) = 2
+        
 
     }
     SubShader {
@@ -30,7 +33,7 @@ Shader "NPR/NPR_Base"
             {
                 "LightMode" = "UniversalForward"
             }
-            
+            Cull [_Cull]
             HLSLPROGRAM
             
             #pragma vertex vert
@@ -59,6 +62,7 @@ Shader "NPR/NPR_Base"
                 float _OrthographicCamSize;
                 float4 _RippleColor;
             #endif
+            float _AlphaClip;
             
             CBUFFER_END
 
@@ -129,12 +133,12 @@ Shader "NPR/NPR_Base"
 
                 // 提取信息
                 float aoCol = SAMPLE_TEXTURE2D(_AOMap, sampler_AOMap, i.uv * _MainMap_ST.xy + _MainMap_ST.zw).r;
-                float3 mainTex = SAMPLE_TEXTURE2D(_MainMap, sampler_MainMap, i.uv).rgb;
+                float4 mainTex = SAMPLE_TEXTURE2D(_MainMap, sampler_MainMap, i.uv);
                 float emissMap = SAMPLE_TEXTURE2D(_EmissMap, sampler_EmissMap, i.uv).r;
                 // 光照计算
                     // 漫反射颜色
                     float diffMask = min(smoothstep(_DiffStep - 0.05, _DiffStep + 0.05, nl), shadow);
-                    float3 diffCol =  lerp(mainTex * _BaseColor1.rgb , mainTex * _BaseColor2.rgb, diffMask) * aoCol;
+                    float3 diffCol =  lerp(mainTex.rgb * _BaseColor1.rgb , mainTex.rgb * _BaseColor2.rgb, diffMask) * aoCol;
                     finalRGB += diffCol * mainLight.color.rgb;
                 //脚步交互
                 float3 stepCol = 0.0;
@@ -160,7 +164,7 @@ Shader "NPR/NPR_Base"
                         bakeGI = bakeGI * lambert / max(1e-4,direction.w);
                         #endif
                     #else
-                        bakeGI = SampleSH(nDirWS);// SH,Light Probe
+                        //bakeGI = SampleSH(nDirWS);// SH,Light Probe
                     #endif
                     finalRGB += bakeGI;
 
@@ -180,6 +184,7 @@ Shader "NPR/NPR_Base"
                             finalRGB += addLightDiffCol;
                         }
                     #endif
+                    clip(mainTex.a-_AlphaClip);
                 // finalRGB
                 return float4(finalRGB + stepCol, 1.0);
             }

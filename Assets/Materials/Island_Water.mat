@@ -65,10 +65,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaRange: 1.23
+    - _AlphaRange: 0.62
     - _Amplitude: 0.042
     - _CubemapMip: 0
-    - _DepthRange: 10.6
+    - _DepthRange: 2.08
     - _FlowSpeed: 1
     - _FoamRange: 1
     - _FresnelScale: 6.7
@@ -99,6 +99,6 @@ Material:
     - _Refractioncol: {r: 0.66180134, g: 0.9811321, b: 0.9251156, a: 1}
     - _RippleColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
-    - _WaterDeepColr: {r: 0.11374155, g: 0.24164301, b: 0.33962262, a: 1}
-    - _WaterShallowColr: {r: 0.14173195, g: 0.3301887, b: 0.32669875, a: 1}
+    - _WaterDeepColr: {r: 0.20260769, g: 0.2735849, b: 0.20263675, a: 1}
+    - _WaterShallowColr: {r: 0.25569597, g: 0.3207547, b: 0.29807618, a: 1}
   m_BuildTextureStacks: []

@@ -43,10 +43,12 @@ Material:
     m_Ints: []
     m_Floats:
     - _AddLights: 1
+    - _AlphaClip: 0
+    - _Cull: 2
     - _DiffStep: 0.5
     - _T1: 0
     m_Colors:
-    - _BaseColor1: {r: 0, g: 0, b: 0, a: 0}
+    - _BaseColor1: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 0}
     - _BaseColor2: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
     - _EmissCol: {r: 0, g: 0, b: 0, a: 0}
     - _RippleColor: {r: 1, g: 1, b: 1, a: 1}

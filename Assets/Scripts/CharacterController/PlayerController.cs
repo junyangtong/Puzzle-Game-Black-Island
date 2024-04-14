@@ -8,12 +8,21 @@ public class PlayerController : MonoBehaviour
     public float rotateLerp = 0.1f; // 旋转插值比例
     public GameObject StepParticall;
     public GameObject StepParticalr;
+    [Header("当被击退时")]
+    public float Repulsedspeed;
+
     private CharacterController car;
     private Animator anim;
     private Transform player;
     private Vector3 targetDirection,currentDirection;
     private bool canMove = false;
     private bool isMove = false;
+    private bool isRepulsed = false;
+    private Vector3 RepulsedTarget;
+
+    //计时器
+    TimerMgr timer;
+    int TimerID;
     
     private void OnEnable() 
     {
@@ -29,6 +38,12 @@ public class PlayerController : MonoBehaviour
     }
     void Start()
     {
+        // 初始化计时器
+        timer = new TimerMgr();
+        timer.Init();
+        // 启动计时器
+        TimerID = timer.Schedule(RepulsedOver, 1, 1);
+
         car = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
         player = this.transform;
@@ -39,9 +54,21 @@ public class PlayerController : MonoBehaviour
         // 角色移动
         Vector3 move = Vector3.zero;
         if(!canMove)
-        {
-            move.x = Input.GetAxis("Horizontal") * Time.deltaTime;
-            move.z = Input.GetAxis("Vertical") * Time.deltaTime;
+        {   
+            // 如果角色在被击退状态
+            if(isRepulsed)
+            {   
+                // 计时器控制击退时间
+                timer.Update();
+                Vector3 RepulsedVector = (transform.position - RepulsedTarget).normalized;
+                move.x = RepulsedVector.x * Time.deltaTime;
+                move.z = RepulsedVector.z * Time.deltaTime;
+            }
+            else
+            {
+                move.x = Input.GetAxis("Horizontal") * Time.deltaTime;
+                move.z = Input.GetAxis("Vertical") * Time.deltaTime;
+            }
             move.y -= 3f * Time.deltaTime;  //模拟重力
         }
         if (car != null)
@@ -76,6 +103,26 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(targetDirection), rotateLerp);
 
         //transform.LookAt(transform.position + targetDirection); 
+        }
+    }
+    private void RepulsedOver()
+    {   
+        // 结束击退
+        isRepulsed = false;
+        // 结束计时
+        timer.Unschedule(TimerID);
+        TimerID = timer.Schedule(RepulsedOver, 1, 1);
+        Debug.Log("击退结束");
+    }
+    
+    void OnTriggerEnter(Collider collision)
+    {
+        // 检测是否处于可交互物品的保护范围内 如果是则被击退
+        if (collision.gameObject.layer == 11)
+        { 
+            Debug.Log("被击退");
+            RepulsedTarget = collision.gameObject.transform.position;
+            isRepulsed = true;
         }
     }
 }

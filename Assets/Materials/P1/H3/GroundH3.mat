@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ground
+  m_Name: GroundH3
   m_Shader: {fileID: 4800000, guid: 909a9326108b0f64da30f7f382b3a3d5, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -34,7 +34,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 31c7ceac58b708d4b8e26d38e52c68a6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -42,7 +42,7 @@ Material:
         m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: a862add61bfe05647b6b6fabe1fa87f5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -51,7 +51,7 @@ Material:
     - _DiffStep: 0.5
     - _T1: 1
     m_Colors:
-    - _BaseColor1: {r: 0, g: 0, b: 0, a: 0}
+    - _BaseColor1: {r: 0.7653525, g: 0.7916647, b: 0.8584906, a: 0}
     - _BaseColor2: {r: 1, g: 1, b: 1, a: 1}
     - _EmissCol: {r: 0, g: 0, b: 0, a: 0}
     - _RippleColor: {r: 1, g: 1, b: 1, a: 1}

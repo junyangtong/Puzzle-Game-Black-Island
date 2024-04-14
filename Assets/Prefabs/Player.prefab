@@ -440,7 +440,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8429602205177196161, guid: d61d86c854d3deb4090394a8c9ad81f8, type: 3}
+  - {fileID: 2100000, guid: d7c6301d8e6a56a43a74d558860210b5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -618,7 +618,7 @@ Transform:
   m_GameObject: {fileID: 3993918054515977322}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.34, y: 0, z: -1.41}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8533380923770423829}
@@ -651,7 +651,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.61, z: 0}
+  m_Center: {x: 0, y: 0.56, z: 0}
 --- !u!114 &582479226789759885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -668,6 +668,7 @@ MonoBehaviour:
   rotateLerp: 0.1
   StepParticall: {fileID: 8967249023558213553}
   StepParticalr: {fileID: 4540847845311428136}
+  Repulsedspeed: 0
 --- !u!54 &7542395052917672041
 Rigidbody:
   m_ObjectHideFlags: 0

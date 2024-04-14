@@ -12,7 +12,7 @@ public class CollisionEvents : MonoBehaviour
         { 
             //进入可交互物品
             CanInteractive = true;
-            Debug.Log("进入可交互物品" + "Layer层级：" + collision.gameObject.layer);
+            Debug.Log("进入可交互物品" + collision.gameObject.name);
         }
     }
     void OnTriggerStay(Collider collision)
@@ -30,7 +30,7 @@ public class CollisionEvents : MonoBehaviour
         { 
             // 离开可交互物品
             CanInteractive = false;
-            Debug.Log("离开可交互物品" + "Layer层级：" + collision.gameObject.layer);
+            Debug.Log("离开可交互物品" + collision.gameObject.name);
             
             // 离开可交互物品时取消对话框并 恢复为游戏进行状态
             EventHandler.CallShowDialogueEvent(string.Empty);

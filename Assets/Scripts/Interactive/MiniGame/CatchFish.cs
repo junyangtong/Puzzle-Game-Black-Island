@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CatchFish : MonoBehaviour
+public class CatchFish : Singleton<CatchFish>
 {
     // 引用预制件。在 Inspector 中，将预制件拖动到该字段中。
     public GameObject obstacle;
@@ -10,19 +10,22 @@ public class CatchFish : MonoBehaviour
     int TimerID;
     public Transform CameraController;
     public bool isRotate;
+    public bool isLaunch;
 
     void Start()
     {
-        //初始化
+        // 初始化计时器
         timer = new TimerMgr();
         timer.Init();
-        //启动定时器
-        TimerID = timer.Schedule(FishLaunch, 0, 2);
+        // 启动定时器
+        TimerID = timer.Schedule(FishLaunch, 0, 4);
+        isLaunch = true;
     }
 
     void Update()
     {
-        timer.Update();
+        if (timer != null && isLaunch)
+            timer.Update();
         if(isRotate)
         CameraRotateRight();
         if(!isRotate)

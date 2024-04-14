@@ -8,6 +8,8 @@ public class Nest : Interactive
     public GameObject Bird;
     private CapsuleCollider coll;
     private DialogueController dialogueController;
+    public bool haveDuck = true;
+    public GameObject protectionScope;
 
     private void Awake()
     {

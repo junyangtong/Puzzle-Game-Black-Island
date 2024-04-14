@@ -335,7 +335,7 @@ Shader "Island/Water"
                 float3 offsetColor2 = SAMPLE_TEXTURE2D(_WarpMap,smp_Point_Repeat,i.uv * _WarpMap_ST.xy - _Time.x * _FlowSpeed).rgb;
                 //提取信息
                 float2 warp = (offsetColor1.rg - 0.5) * _WarpInt + (offsetColor2.rg - 0.5) * -_WarpInt;
-                float noise = offsetColor1.b + offsetColor2.b;
+                float noise = clamp(0,1,offsetColor1.b + offsetColor2.b);
                 float2 warpScreenPos = screenPos + warp;
                 float2 warpuv = i.uv + warp;
 
@@ -346,7 +346,6 @@ Shader "Island/Water"
                     float surfaceDepth = i.scrPos.w;
                     float viewWaterDepth = backgroundDepth - surfaceDepth;	                                //深度差值
                     float viewWaterDepth01 = saturate(viewWaterDepth / _DepthRange);                        //取绝对值返回比例
-                    viewWaterDepth01 = viewWaterDepth01;
                     float4 depthCol = lerp(_WaterShallowColr, _WaterDeepColr, viewWaterDepth01);            //控制浅水区和深水区颜色
                     //折射
                     float4 refraction = SAMPLE_TEXTURE2D(_CameraOpaqueTexture, smp_Point_Repeat, warpScreenPos);
