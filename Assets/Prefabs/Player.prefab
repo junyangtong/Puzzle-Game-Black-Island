@@ -588,6 +588,37 @@ Transform:
   m_Father: {fileID: 4402972291435432377}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3940692246493822250
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4354669082740549760}
+  m_Layer: 0
+  m_Name: Body
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4354669082740549760
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3940692246493822250}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.163, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8195166666493591993}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3993918054515977322
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,6 +654,7 @@ Transform:
   m_Children:
   - {fileID: 8533380923770423829}
   - {fileID: 8474544364699151510}
+  - {fileID: 4354669082740549760}
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -645,13 +677,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 1.08
+  m_Height: 1
   m_Radius: 0.23
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.56, z: 0}
+  m_Center: {x: 0, y: 0.62, z: 0}
 --- !u!114 &582479226789759885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5764,7 +5796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 114e764aa1beff3438e56eb7bf2a70c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  body: {fileID: 8195166666493591993}
+  body: {fileID: 4354669082740549760}
   terrainLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -6096,7 +6128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 114e764aa1beff3438e56eb7bf2a70c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  body: {fileID: 8195166666493591993}
+  body: {fileID: 4354669082740549760}
   terrainLayer:
     serializedVersion: 2
     m_Bits: 64
