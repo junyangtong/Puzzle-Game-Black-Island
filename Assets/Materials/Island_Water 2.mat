@@ -99,6 +99,6 @@ Material:
     - _Refractioncol: {r: 0.66180134, g: 0.9811321, b: 0.9251156, a: 1}
     - _RippleColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
-    - _WaterDeepColr: {r: 0.22921859, g: 0.45577043, b: 0.4811321, a: 1}
-    - _WaterShallowColr: {r: 0.42986828, g: 0.7924528, b: 0.67785597, a: 1}
+    - _WaterDeepColr: {r: 0.30210927, g: 0.645727, b: 0.6886792, a: 1}
+    - _WaterShallowColr: {r: 0.55108577, g: 0.9056604, b: 0.7929662, a: 1}
   m_BuildTextureStacks: []
