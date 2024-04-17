@@ -683,7 +683,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.62, z: 0}
+  m_Center: {x: 0, y: 0.57, z: 0}
 --- !u!114 &582479226789759885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -700,7 +700,6 @@ MonoBehaviour:
   rotateLerp: 0.1
   StepParticall: {fileID: 8967249023558213553}
   StepParticalr: {fileID: 4540847845311428136}
-  Repulsedspeed: 0
 --- !u!54 &7542395052917672041
 Rigidbody:
   m_ObjectHideFlags: 0

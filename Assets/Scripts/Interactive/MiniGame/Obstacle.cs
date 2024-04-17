@@ -39,6 +39,9 @@ public class Obstacle : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
+
+    // TODO: 游戏关闭时应该销毁所有鱼
+
     void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.layer == 10)

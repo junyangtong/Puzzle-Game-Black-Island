@@ -8,8 +8,6 @@ public class PlayerController : MonoBehaviour
     public float rotateLerp = 0.1f; // 旋转插值比例
     public GameObject StepParticall;
     public GameObject StepParticalr;
-    [Header("当被击退时")]
-    public float Repulsedspeed;
 
     private CharacterController car;
     private Animator anim;
@@ -27,21 +25,14 @@ public class PlayerController : MonoBehaviour
     private void OnEnable() 
     {
         EventHandler.GameStateChangeEvent += OnGameStateChangeEvent;
-        EventHandler.TeleportEvent += OnTeleportEvent;
     }
     private void OnDisable() 
     {
         EventHandler.GameStateChangeEvent -= OnGameStateChangeEvent;
-        EventHandler.TeleportEvent -= OnTeleportEvent;
     }
     private void OnGameStateChangeEvent(GameState gameState)
     {
         canMove = gameState == GameState.MiniGame;
-    }
-    private void OnTeleportEvent(Vector3 targetPos)
-    {   
-        this.gameObject.transform.position = targetPos;
-        Debug.Log("瞬移");
     }
     void Start()
     {

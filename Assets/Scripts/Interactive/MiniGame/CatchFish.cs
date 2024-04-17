@@ -35,7 +35,8 @@ public class CatchFish : Singleton<CatchFish>
     private void FishLaunch()
     {
         // 实例化为位置 (0, 0, 0) 和零旋转。
-        Instantiate(obstacle, transform.position, Quaternion.identity);
+        GameObject obj = Instantiate(obstacle, transform.position, Quaternion.identity);
+        obj.transform.SetParent(this.transform);  
     }
     public void Rotateleft()
     {
