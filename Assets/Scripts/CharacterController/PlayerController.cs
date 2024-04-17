@@ -27,14 +27,21 @@ public class PlayerController : MonoBehaviour
     private void OnEnable() 
     {
         EventHandler.GameStateChangeEvent += OnGameStateChangeEvent;
+        EventHandler.TeleportEvent += OnTeleportEvent;
     }
     private void OnDisable() 
     {
         EventHandler.GameStateChangeEvent -= OnGameStateChangeEvent;
+        EventHandler.TeleportEvent -= OnTeleportEvent;
     }
     private void OnGameStateChangeEvent(GameState gameState)
     {
         canMove = gameState == GameState.MiniGame;
+    }
+    private void OnTeleportEvent(Vector3 targetPos)
+    {   
+        this.gameObject.transform.position = targetPos;
+        Debug.Log("瞬移");
     }
     void Start()
     {

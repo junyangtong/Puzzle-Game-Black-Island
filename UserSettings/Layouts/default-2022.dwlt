@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Scene
   m_RootView: {fileID: 4}
   m_MinSize: {x: 875, y: 321}
   m_MaxSize: {x: 10000, y: 10000}
@@ -898,7 +898,7 @@ MonoBehaviour:
       sizeOverriden: 0
     m_OverlaysVisible: 1
   m_WindowGUID: 727942ede5802ba438039f6a2957c74b
-  m_Gizmos: 0
+  m_Gizmos: 1
   m_OverrideSceneCullingMask: 6917529027641081856
   m_SceneIsLit: 1
   m_SceneLighting: 1
@@ -907,9 +907,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 6.397359, y: -42.61146, z: 27.827927}
+    m_Target: {x: 5.262084, y: -1.7080851, z: -1.9194256}
     speed: 2
-    m_Value: {x: 6.397359, y: -42.61146, z: 27.827927}
+    m_Value: {x: 5.262084, y: -1.7080851, z: -1.9194256}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -955,20 +955,20 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.41531873, y: -0.05255502, z: 0.024312759, w: -0.908019}
+    m_Target: {x: -0.41289103, y: -0.3125731, z: 0.15339272, w: -0.84186256}
     speed: 2
-    m_Value: {x: -0.4152479, y: -0.052546058, z: 0.024308613, w: -0.90786415}
+    m_Value: {x: -0.41289103, y: -0.3125731, z: 0.15339272, w: -0.84186256}
   m_Size:
-    m_Target: 34.195972
+    m_Target: 4.7785215
     speed: 2
-    m_Value: 34.195972
+    m_Value: 4.7785215
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_CameraSettings:
-    m_Speed: 2
-    m_SpeedNormalized: 1
+    m_Speed: 1.5821004
+    m_SpeedNormalized: 0.7900002
     m_SpeedMin: 0.01
     m_SpeedMax: 2
     m_EasingEnabled: 1
@@ -1230,10 +1230,10 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 655}
-      m_SelectedIDs: 
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: f0680000
       m_LastClickedID: 0
-      m_ExpandedIDs: a4f1ffffb0f1ffffbcf1ffffc8f1ffffd0f1ffffd4f1ffffdcf1ffffe4f1ffff3cf2ffff60f5ffffe8f7ffff8cf8ffff2cfaffff0c6d0000106d0000266d00009e6d0000586e0000d26e00001e6f0000087000002e700000
+      m_ExpandedIDs: 2afbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1304,8 +1304,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SkipHidden: 0
     m_SearchArea: 1
-    m_Folders:
-    - "Assets/Textures/P1_Static/H3/H3/\u5C71\u4E2D\u95F4"
+    m_Folders: []
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1313,14 +1312,14 @@ MonoBehaviour:
   m_StartGridSize: 64
   m_LastFolders: []
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: D:\unity file\My-Puzzle-Game
+  m_LastProjectPath: F:\unityprojects\My-Puzzle-Game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 1caa0000
     m_LastClickedID: 43548
-    m_ExpandedIDs: 00000000a86b0000607200006472000066720000687200003479000036790000387900003a7900003c7900003e79000040790000427900004479000046790000487900004a7900004c7900004e79000050790000527900005479000056790000587900005a7900005c7900005e79000060790000627900006479000066790000687900006a7900006c7900006e7900007079000072790000747900007679000078790000
+    m_ExpandedIDs: 00000000a806000054700000587000006a7700006c7700006e77000070770000727700007477000076770000787700007a7700007c7700007e77000080770000827700008477000086770000887700008a7700008c7700008e7700009077000092770000947700009677000098770000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1345,10 +1344,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 584}
+    scrollPos: {x: 0, y: 216}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000a86b0000607200006472000066720000687200003479000036790000387900003a7900003c7900003e79000040790000427900004479000046790000487900004a7900004c7900004e79000050790000527900005479000056790000587900005a7900005c7900005e79000060790000627900006479000066790000687900006a7900006c7900006e79000070790000727900007479000076790000787900002c7b0000587b0000d6b10000d8b10000dab10000
+    m_ExpandedIDs: ffffffff00000000a806000054700000587000006a7700006c7700006e77000070770000727700007477000076770000787700007a7700007c7700007e77000080770000827700008477000086770000887700008a7700008c7700008e7700009077000092770000947700009677000098770000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

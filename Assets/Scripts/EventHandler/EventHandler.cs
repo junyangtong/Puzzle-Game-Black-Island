@@ -54,4 +54,10 @@ public static class EventHandler
     {
         SetOpenBagButtonEvent?.Invoke(itemDetails);
     }
+    //角色瞬移
+    public static event Action<Vector3> TeleportEvent;
+    public static void CallTeleportEvent(Vector3 targetPos)
+    {
+        TeleportEvent?.Invoke(targetPos);
+    }
 }
