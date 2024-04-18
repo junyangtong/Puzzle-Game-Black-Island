@@ -38,19 +38,31 @@ public class Boat : Interactive
         if(InBoatPos != null && Player != null)
         {
             playerController.enabled = false;
-            Player.transform.position = InBoatPos.position;
-            playerController.enabled = true;
+            Invoke("begainTo", 0.1f);
+            Invoke("CarEnabled", 0.2f);
         }
         else
             Debug.LogWarning("未选择角色瞬移目的地或角色不在范围内！！");
+    }
+    private void begainTo()
+    {
+        Player.transform.position = InBoatPos.position;
+    }
+    private void begainOut()
+    {
+        Player.transform.position = OutBoatPos.position;
+    }
+    private void CarEnabled()
+    {
+        playerController.enabled = true;
     }
     public void TeleportOutBoat()
     {
         if(OutBoatPos != null && Player != null)
         {
             playerController.enabled = false;
-            Player.transform.position = OutBoatPos.position;
-            playerController.enabled = true;
+            Invoke("begainOut", 0.1f);
+            Invoke("CarEnabled", 0.2f);
         }
         else
             Debug.LogWarning("未选择角色瞬移目的地或角色不在范围内！！");

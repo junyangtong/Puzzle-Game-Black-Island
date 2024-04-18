@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18386628, g: 0.22903675, b: 0.30325994, a: 1}
+  m_IndirectSpecularColor: {r: 0.18386655, g: 0.22903696, b: 0.30326077, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5899,6 +5899,7 @@ GameObject:
   - component: {fileID: 107735617}
   - component: {fileID: 107735616}
   - component: {fileID: 107735615}
+  - component: {fileID: 107735619}
   m_Layer: 9
   m_Name: FishBone
   m_TagString: PickUpProp
@@ -5956,6 +5957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb86ea44877e3c4faae438438d90283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickItemAnim: {fileID: 0}
   itemName: 6
 --- !u!23 &107735617
 MeshRenderer:
@@ -6007,6 +6009,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 107735613}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &107735619
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107735613}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &116510480 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -989529725001320064, guid: 252504e8d8f943545b4216cb9e5bef99,
@@ -8220,6 +8243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb86ea44877e3c4faae438438d90283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickItemAnim: {fileID: 0}
   itemName: 3
 --- !u!23 &490685711
 MeshRenderer:
@@ -10768,6 +10792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb86ea44877e3c4faae438438d90283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickItemAnim: {fileID: 0}
   itemName: 5
 --- !u!1 &838582634
 GameObject:
@@ -14068,6 +14093,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb86ea44877e3c4faae438438d90283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickItemAnim: {fileID: 0}
   itemName: 4
 --- !u!23 &1181424931
 MeshRenderer:
@@ -15599,7 +15625,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1393083922
 Transform:
   m_ObjectHideFlags: 0
@@ -15791,6 +15817,7 @@ GameObject:
   - component: {fileID: 1451716023}
   - component: {fileID: 1451716022}
   - component: {fileID: 1451716021}
+  - component: {fileID: 1451716025}
   m_Layer: 9
   m_Name: egg
   m_TagString: PickUpProp
@@ -15848,6 +15875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb86ea44877e3c4faae438438d90283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickItemAnim: {fileID: 7400000, guid: 8c7a2a2f15363a8459b0a82c65a1f604, type: 2}
   itemName: 1
 --- !u!23 &1451716023
 MeshRenderer:
@@ -15899,6 +15927,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451716019}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!111 &1451716025
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451716019}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 8c7a2a2f15363a8459b0a82c65a1f604, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 8c7a2a2f15363a8459b0a82c65a1f604, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1465078448
 GameObject:
   m_ObjectHideFlags: 0
@@ -19174,7 +19218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2009677394
 Transform:
   m_ObjectHideFlags: 0
@@ -20138,6 +20182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb86ea44877e3c4faae438438d90283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickItemAnim: {fileID: 0}
   itemName: 2
 --- !u!23 &2105626039
 MeshRenderer:
