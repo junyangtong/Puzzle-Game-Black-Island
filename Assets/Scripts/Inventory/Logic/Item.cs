@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//[RequireComponent(typeof(Animation))]
+[RequireComponent(typeof(Animation))]
+[RequireComponent(typeof(RelativePositonForAnimation))]
 
 public class Item : MonoBehaviour
 {
@@ -26,6 +27,11 @@ public class Item : MonoBehaviour
     private void Start() 
     {
         anim = gameObject.GetComponent<Animation>();   
+        anim.playAutomatically = false;
+        if(PickItemAnim != null)
+            anim.AddClip(PickItemAnim, PickItemAnim.name);
+        else
+        Debug.LogError("请指定拾取物品动画");
     }
     private void Awake() 
     {
