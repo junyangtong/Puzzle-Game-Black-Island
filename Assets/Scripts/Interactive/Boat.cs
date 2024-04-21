@@ -33,6 +33,7 @@ public class Boat : Interactive
         Player = null;
         InBoatToolTip.SetActive(false);
     }
+    
     public void TeleportToBoat()
     {
         if(InBoatPos != null && Player != null)
@@ -40,6 +41,20 @@ public class Boat : Interactive
             playerController.enabled = false;
             Invoke("begainTo", 0.1f);
             Invoke("CarEnabled", 0.2f);
+            EventHandler.CallFouseEvent();
+        }
+        else
+            Debug.LogWarning("未选择角色瞬移目的地或角色不在范围内！！");
+    }
+
+    public void TeleportOutBoat()
+    {
+        if(OutBoatPos != null && Player != null)
+        {
+            playerController.enabled = false;
+            Invoke("begainOut", 0.1f);
+            Invoke("CarEnabled", 0.2f);
+            EventHandler.CallStopFocusEvent();
         }
         else
             Debug.LogWarning("未选择角色瞬移目的地或角色不在范围内！！");
@@ -55,16 +70,5 @@ public class Boat : Interactive
     private void CarEnabled()
     {
         playerController.enabled = true;
-    }
-    public void TeleportOutBoat()
-    {
-        if(OutBoatPos != null && Player != null)
-        {
-            playerController.enabled = false;
-            Invoke("begainOut", 0.1f);
-            Invoke("CarEnabled", 0.2f);
-        }
-        else
-            Debug.LogWarning("未选择角色瞬移目的地或角色不在范围内！！");
     }
 }

@@ -12,6 +12,30 @@ public class CameraFollow : MonoBehaviour
     public float FovTarget;
     [Header("变焦速度")]
     public float FovSpeed;
+    public bool Focus = false;
+    public bool StopFocus = false;
+    private float m_Fov;
+
+    private void OnEnable() 
+    {
+        EventHandler.FouseEvent += fouse;
+        EventHandler.StopFocusEvent += stopFocus;
+    }
+    private void OnDisable() 
+    {
+        EventHandler.FouseEvent -= fouse;
+        EventHandler.StopFocusEvent -= stopFocus;
+    }
+    private void fouse()
+    {
+        Focus = true;
+        StopFocus = false;
+    }
+    private void stopFocus()
+    {
+        Focus = false;
+        StopFocus = true;
+    }
 
     private void Awake() 
     {
@@ -21,6 +45,7 @@ public class CameraFollow : MonoBehaviour
     {
         // 设置相对偏移
         offset = m_Target.position - this.transform.position;
+        m_Fov = Fov;
     }
     private void Update()
     {   
@@ -30,8 +55,22 @@ public class CameraFollow : MonoBehaviour
         this.transform.position = m_Target.position - offset;
         
         // 丝滑变焦
-        Camera.main.fieldOfView = Fov;
-        if(Fov > FovTarget)
-            Fov -= FovSpeed * Time.deltaTime;
+        Camera.main.fieldOfView = m_Fov;
+        if(Focus)
+        {
+            if(m_Fov > FovTarget)
+                m_Fov -= FovSpeed * Time.deltaTime;
+            else
+                Focus = false;
+        }
+        if(StopFocus)
+        {
+            if(m_Fov < Fov)
+                m_Fov += FovSpeed * Time.deltaTime;
+            else
+                StopFocus = false;
+        }
+        
+        
     }
 }
