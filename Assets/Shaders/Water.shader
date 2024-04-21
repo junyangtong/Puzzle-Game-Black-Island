@@ -136,6 +136,7 @@ Shader "Island/Water"
             TEXTURE2D(_RainTex) ;
 			float4 _RainTex_ST;
             TEXTURE2D(_GlobalRipplesRT);
+            SAMPLER(sampler_GlobalRipplesRT);
             TEXTURE2D(_CameraOpaqueTexture);
             // 贴图采样器
             SamplerState smp_Point_Repeat;
@@ -273,12 +274,12 @@ Shader "Island/Water"
                     waveOffset += wave.wavePos;                    
                 }
                 v.vertex.xyz += waveOffset;
-                o.vertex = TransformObjectToHClip(v.vertex);
+                o.vertex = TransformObjectToHClip(v.vertex.xyz);
                 o.nDirWS = TransformObjectToWorldNormal(v.normal);
                 o.tDirWS = TransformObjectToWorldDir(v.tangent.xyz);
                 o.bDirWS = cross(o.nDirWS, o.tDirWS) * v.tangent.w;
 				o.uv = v.uv;
-				o.posWS = TransformObjectToWorld(v.vertex);
+				o.posWS = TransformObjectToWorld(v.vertex.xyz);
                 o.scrPos = ComputeScreenPos(o.vertex);
 				o.color = v.color;
                 return o;
@@ -360,17 +361,17 @@ Shader "Island/Water"
                     float2 RTuv = i.posWS.xz - _Position.xz;                                                // 像素点相对于相机中心的距离
                     RTuv = RTuv / (_OrthographicCamSize * 2);                                               // 转为 -0.5~0.5
                     RTuv += 0.5; // 转为 0~1
-                    float ripples = SAMPLE_TEXTURE2D(_GlobalRipplesRT, smp_Point_Repeat,saturate(RTuv)).b;  //采样RenderTexture
+                    float ripples = SAMPLE_TEXTURE2D(_GlobalRipplesRT, sampler_GlobalRipplesRT,saturate(RTuv)).b;  //采样RenderTexture
                     ripples = step(2, ripples * 3);
                     float3 ripplesCol = ripples * _RippleColor.rgb;
                     //雨天涟漪
-                    float3 emissive = 1-(frac((_Time * 20)));
-                    float3 emissive2 = 1-(frac((_Time * 10) + 0.5));                                                                 //时间偏移
+                    float3 emissive = 1-(frac((_Time.y * 20)));
+                    float3 emissive2 = 1-(frac((_Time.y * 10) + 0.5));                                                                 //时间偏移
                     float RainTex = SAMPLE_TEXTURE2D(_RainTex,smp_Point_Repeat,i.uv * _RainTex_ST.xy).r;
                     float RainTex2 = SAMPLE_TEXTURE2D(_RainTex,smp_Point_Repeat,i.uv * _RainTex_ST.xy).g;      //UV 偏移
                     float maskColor = RainTex.r>0.1? saturate(1 - distance(emissive.r - RainTex,0.05)/0.05):0;
                     float maskColor2 = RainTex2.r>0.1? saturate(1 - distance(emissive2.r - RainTex2,0.05)/0.05):0;
-                    float maskSwitch = saturate(abs(sin((_Time * 0.5))));                                                           //两张图交替淡入
+                    float maskSwitch = saturate(abs(sin((_Time.y * 0.5))));                                                           //两张图交替淡入
                     float3 spray = lerp(maskColor , maskColor2 ,maskSwitch) * _RainInt * _RippleColor.rgb;
                     //高光
                     float3 specular = _SpecularColor.rgb * _SpecularStrenght * pow(max(0,nh),_SpecularRange);

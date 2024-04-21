@@ -46,34 +46,43 @@ public class CursorManager : MonoBehaviour
                 //如果射线碰到物体
                 if (Physics.Raycast(ray, out clickObject))
                 {   
-                    if(collisionEvents.CanInteractive == true)
+                    if(collisionEvents.isCloseObj == true)
                     {
                         switch(clickObject.transform.tag)
                         {
                             case "PickUpProp":
                                 //执行拾取方法
                                 var Pickeditem = clickObject.collider.gameObject.GetComponent<Item>();
-                                Pickeditem?.ItemPicked(); 
-                                collisionEvents.CanInteractive = false;
+                                if(Pickeditem.CanInteractive)
+                                {
+                                    Pickeditem?.ItemPicked(); 
+                                }
+                                Pickeditem.CanInteractive = false;
                                 break;
 
-                            case"InteractiveProp":
+                            case "InteractiveProp":
                                 var interactive = clickObject.collider.gameObject.GetComponent<Interactive>();
-                                holdItem = InventoryManager.Instance.holdItem;
-                                if(holdItem)
-                                    {
-                                        currentItem = InventoryManager.Instance.currentItem;
-                                        interactive?.CheckItem(currentItem);
-                                        //if(interactive.isDone)
-                                            holdItem =false;//如果物品成功使用了 则取消选择状态
-                                    }
-                                else
-                                    interactive?.EmptyClicked();
-                                break;
+                                if(interactive.CanInteractive)
+                                {
+                                    holdItem = InventoryManager.Instance.holdItem;
+                                    if(holdItem)
+                                        {
+                                            currentItem = InventoryManager.Instance.currentItem;
+                                            interactive?.CheckItem(currentItem);
+                                            //if(interactive.isDone)
+                                                holdItem =false;//如果物品成功使用了 则取消选择状态
+                                        }
+                                    else
+                                        interactive?.EmptyClicked();
+                                }
+                                    break;
 
-                            case"CanBeUseProp":
+                            case "CanBeUseProp":
                                 var interactive1 = clickObject.collider.gameObject.GetComponent<Interactive>();
-                                interactive1?.OnClickedActionNoRequire();
+                                if(interactive1.CanInteractive)
+                                {
+                                    interactive1?.OnClickedActionNoRequire();
+                                }
                                 break;
                         }
                     }

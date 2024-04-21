@@ -57,7 +57,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 5e7ed91c9f9bf6047b2fe657dff72917, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -69,7 +69,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 76bda04d9e8b3e444be2e3f782ced0cd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -99,7 +99,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AddLights: 1
-    - _AlphaClip: 0
+    - _AlphaClip: 0.58
     - _AlphaToMask: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
@@ -118,6 +118,7 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
+    - _MoveSpeed: 1
     - _NormalInt: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -130,15 +131,17 @@ Material:
     - _SrcBlendAlpha: 1
     - _Surface: 0
     - _T1: 0
+    - _T2: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BaseColor1: {r: 0, g: 0, b: 0, a: 0}
+    - _BaseColor1: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 0}
     - _BaseColor2: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissCol: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _MoveRange: {r: 0, g: 1, b: 0, a: 0}
     - _RippleColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
