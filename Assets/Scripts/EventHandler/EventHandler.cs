@@ -54,4 +54,17 @@ public static class EventHandler
     {
         SetOpenBagButtonEvent?.Invoke(itemDetails);
     }
+
+    // 相机聚焦
+    public static event Action FouseEvent;
+    public static void CallFouseEvent()
+    {
+        FouseEvent?.Invoke();
+    }
+    // 相机取消聚焦
+    public static event Action StopFocusEvent;
+    public static void CallStopFocusEvent()
+    {
+        StopFocusEvent?.Invoke();
+    }
 }

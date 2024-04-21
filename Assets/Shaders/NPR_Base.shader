@@ -10,6 +10,7 @@ Shader "NPR/NPR_Base"
         _MainMap        ("颜色贴图", 2D) = "white" {}
         _AOMap          ("环境光遮蔽", 2D)="white"{}
         _NormalMap      ("法线贴图", 2D)="bump"{}
+        _NormalInt       ("法线强度",Float) = 1.0
         _EmissMap      ("自发光贴图", 2D)="white"{}
         [Toggle(_AdditionalLights)] _AddLights ("AddLights", Float) = 1
         [Header(Step)]
@@ -17,7 +18,9 @@ Shader "NPR/NPR_Base"
         _RippleColor        ("脚印颜色", Color) = (1, 1, 1, 1) 
         _AlphaClip       ("透明裁剪",Range(0,1)) = 0.0
         [Enum(UnityEngine.Rendering.CullMode)] _Cull ("Cull Mode", Float) = 2
-        
+        [Toggle] _T2        ("顶点动画？", Float) = 0
+        _MoveSpeed  ("移动速度",Float) = 1.0
+        _MoveRange  ("移动范围",Vector) = (0.0,1.0,0.0,0.0)
 
     }
     SubShader {
@@ -46,6 +49,7 @@ Shader "NPR/NPR_Base"
             #pragma multi_compile _ DIRLIGHTMAP_COMBINED //方向贴图
             #pragma shader_feature _AdditionalLights
             #pragma shader_feature _T1_ON
+            #pragma shader_feature _T2_ON
 
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
@@ -62,8 +66,9 @@ Shader "NPR/NPR_Base"
                 float _OrthographicCamSize;
                 float4 _RippleColor;
             #endif
-            float _AlphaClip;
-            
+            float _AlphaClip,_NormalInt;
+            float _MoveSpeed;
+            float4 _MoveRange;
             CBUFFER_END
 
             TEXTURE2D(_MainMap);
@@ -102,10 +107,22 @@ Shader "NPR/NPR_Base"
                 float4 shadowCoord : TEXCOORD4;
                 float2 staticLightmapUV : TEXCOORD5;
             };
+            #define Two_PI 6.2831852
+            // 顶点平移
+            void Translation(inout float3 vertex)
+            {   
+                vertex.x += sin(frac(_Time.x * _MoveSpeed) * Two_PI) * _MoveRange.x;
+                vertex.y += sin(frac(_Time.x * _MoveSpeed) * Two_PI) * _MoveRange.y;
+                vertex.z += sin(frac(_Time.x * _MoveSpeed) * Two_PI) * _MoveRange.z;
+            }
+
            // 输出结构>>>顶点Shader>>>输出结构
             VertexOutput vert (VertexInput v) 
             {
                 VertexOutput o = (VertexOutput)0;
+                #ifdef _T2_ON
+                Translation(v.vertex.xyz);
+                #endif
                 o.pos = TransformObjectToHClip(v.vertex.xyz);
                 o.uv = TRANSFORM_TEX(v.uv, _MainMap);
                 o.posWS = mul(unity_ObjectToWorld, v.vertex);
@@ -123,6 +140,7 @@ Shader "NPR/NPR_Base"
                 Light mainLight = GetMainLight(i.shadowCoord);                                      // 获取主光源数据
                 float shadow = MainLightRealtimeShadow(i.shadowCoord);
                 float3 nDirTS = normalize(UnpackNormal(SAMPLE_TEXTURE2D(_NormalMap, sampler_NormalMap, i.uv * _NormalMap_ST.xy + _NormalMap_ST.zw)));
+                nDirTS.xz*=_NormalInt;
                 float3x3 TBN = float3x3(i.tDirWS, i.bDirWS, i.nDirWS);                            // 计算TBN矩阵                        
                 float3 nDirWS = normalize(mul(nDirTS, TBN));
                 float3 lDir = normalize(mainLight.direction);
@@ -228,7 +246,7 @@ Shader "NPR/NPR_Base"
             #pragma fragment ShadowPassFragment
 
             #include "Packages/com.unity.render-pipelines.universal/Shaders/LitInput.hlsl"
-            #include "Packages/com.unity.render-pipelines.universal/Shaders/ShadowCasterPass.hlsl"
+            #include "Assets/Shaders/Include/MyShadowCaster.hlsl"
             ENDHLSL
         }
         // This pass is used when drawing to a _CameraNormalsTexture texture
@@ -267,7 +285,7 @@ Shader "NPR/NPR_Base"
             #pragma multi_compile _ DOTS_INSTANCING_ON
 
             #include "Packages/com.unity.render-pipelines.universal/Shaders/LitInput.hlsl"
-            #include "Packages/com.unity.render-pipelines.universal/Shaders/LitDepthNormalsPass.hlsl"
+            #include "Assets/Shaders/Include/MyDepthNormalsPass.hlsl"
             ENDHLSL
         }
         // This pass it not used during regular rendering, only for lightmap baking.
