@@ -37,7 +37,11 @@ public class RandomIdel : StateMachineBehaviour
     // OnStateMachineEnter is called when entering a state machine via its Entry Node
     override public void OnStateMachineEnter(Animator animator, int stateMachinePathHash)
     {
-        animator.SetInteger("IdleIndex", Random.Range(0, 2));
+        var Rnum = Random.Range(0, 2);
+        if(Rnum ==1)
+            animator.SetBool("IdleSwitch", true);
+        else
+            animator.SetBool("IdleSwitch", false);
     }
 
     // OnStateMachineExit is called when exiting a state machine via its Exit Node
