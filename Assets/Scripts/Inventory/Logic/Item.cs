@@ -11,6 +11,7 @@ public class Item : MonoBehaviour
     private Animation anim;
     public ItemName itemName;
     private bool AnimStart = false;
+    public bool CanInteractive = false;
     //private string pickUpProp = "PickUpProp";
     private void Update()
     {

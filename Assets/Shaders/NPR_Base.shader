@@ -83,8 +83,8 @@ Shader "NPR/NPR_Base"
             TEXTURE2D(_EmissMap);
             SAMPLER(sampler_EmissMap);
             #ifdef _T1_ON
-                TEXTURE2D(_GlobalRipplesRT);
-                SAMPLER(sampler_GlobalRipplesRT);
+                TEXTURE2D(_GlobalStepRT);
+                SAMPLER(sampler_GlobalStepRT);
             #endif
             //输入结构
             struct VertexInput 
@@ -164,9 +164,9 @@ Shader "NPR/NPR_Base"
                     float2 RTuv = i.posWS.xz - _Position.xz;                                                // 像素点相对于相机中心的距离
                     RTuv = RTuv / (_OrthographicCamSize * 2);                                               // 转为 -0.5~0.5
                     RTuv += 0.5; // 转为 0~1
-                    float ripples = SAMPLE_TEXTURE2D(_GlobalRipplesRT, sampler_GlobalRipplesRT,saturate(RTuv)).b;  //采样RenderTexture
+                    float ripples = SAMPLE_TEXTURE2D(_GlobalStepRT, sampler_GlobalStepRT,saturate(RTuv)).b;  //采样RenderTexture
                     ripples = step(2, ripples * 3);
-                    stepCol = ripples * _RippleColor.rgb;
+                    stepCol = finalRGB * ripples * _RippleColor.rgb;
                 #else
                 #endif
 
@@ -204,7 +204,7 @@ Shader "NPR/NPR_Base"
                     #endif
                     clip(mainTex.a-_AlphaClip);
                 // finalRGB
-                return float4(finalRGB + stepCol, 1.0);
+                return float4(finalRGB - stepCol, 1.0);
             }
             ENDHLSL
         }

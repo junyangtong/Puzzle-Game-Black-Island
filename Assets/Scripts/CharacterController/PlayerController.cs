@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
     public float rotateLerp = 0.1f; // 旋转插值比例
     public GameObject StepParticall;
     public GameObject StepParticalr;
+    public bool isInWater;
+    public GameObject RippleEffect;
+    public GameObject Rig;
 
     private CharacterController car;
     private Animator anim;
@@ -67,6 +70,7 @@ public class PlayerController : MonoBehaviour
                 move.x = Input.GetAxis("Horizontal") * Time.deltaTime;
                 move.z = Input.GetAxis("Vertical") * Time.deltaTime;
             }
+
             move.y -= 3f * Time.deltaTime;  //模拟重力
         }
         if (car != null)
@@ -102,6 +106,7 @@ public class PlayerController : MonoBehaviour
 
         //transform.LookAt(transform.position + targetDirection); 
         }
+        anim.SetBool("inWater",isInWater);
     }
     private void RepulsedOver()
     {   

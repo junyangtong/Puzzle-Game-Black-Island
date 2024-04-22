@@ -1,4 +1,4 @@
-//交互逻辑基类
+// 交互逻辑基类
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +7,7 @@ public class Interactive : MonoBehaviour
 {
     public ItemName requireItem;
     public bool isDone;
+    public bool CanInteractive = false;
 
     /// <summary>
     /// 需要使用背包中的物品交互
