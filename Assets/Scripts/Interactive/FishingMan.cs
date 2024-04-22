@@ -43,6 +43,8 @@ public class FishingMan : Interactive
     {
         if(other.tag == "Player")
         {
+            // 离开可交互物品时取消对话框并 恢复为游戏进行状态
+            EventHandler.CallShowDialogueEvent(string.Empty);
             MainDialogue.SetActive(true);
             NPCDialogue.SetActive(false);
         }
