@@ -28,14 +28,24 @@ public class PlayerController : MonoBehaviour
     private void OnEnable() 
     {
         EventHandler.GameStateChangeEvent += OnGameStateChangeEvent;
+        EventHandler.ItemCheckAnim += OnItemCheckAnim;
     }
     private void OnDisable() 
     {
         EventHandler.GameStateChangeEvent -= OnGameStateChangeEvent;
+        EventHandler.ItemCheckAnim -= OnItemCheckAnim;
     }
     private void OnGameStateChangeEvent(GameState gameState)
     {
         canMove = gameState == GameState.MiniGame;
+    }
+    private void OnItemCheckAnim(bool ItemCorrectly)
+    {
+        if(ItemCorrectly)
+            anim.SetTrigger("ItemCorrectly");
+        else
+            anim.SetTrigger("ItemFalse");
+
     }
     void Start()
     {

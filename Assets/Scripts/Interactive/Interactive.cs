@@ -17,13 +17,17 @@ public class Interactive : MonoBehaviour
     {
         if(itemName == requireItem && !isDone)
         {
+            // 角色播放使用物品动画
+            EventHandler.CallItemCheckAnim(true);
             isDone = true;
-            //使用这个物品，移除物品
+            // 使用这个物品，移除物品
             OnClickedAction();
             EventHandler.CallItemUsedEvent(itemName);
         }
         if(itemName != requireItem && !isDone)
         {
+            // 角色播放使用物品错误动画
+            EventHandler.CallItemCheckAnim(false);
             InventoryManager.Instance.InitializeSelectionState();
             Debug.Log("物品错误无法使用");
         }

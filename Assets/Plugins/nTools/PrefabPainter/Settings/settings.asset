@@ -12,12 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b0c486dee8904d95a666bbd0aafda94, type: 3}
   m_Name: settings
   m_EditorClassIdentifier: 
-  tabs: []
+  tabs:
+  - name: New Tab
+    brushes: []
+    levelsGamma: 1
+    levelsInBlack: 0
+    levelsInWhite: 255
+    levelsOutBlack: 0
+    levelsOutWhite: 255
   activeTab: 0
   paintOnSelected: 0
   paintLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 3711
   ignoreLayers:
     serializedVersion: 2
     m_Bits: 0

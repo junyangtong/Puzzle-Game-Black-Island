@@ -9,6 +9,7 @@ public class InventoryManager : Singleton<InventoryManager>
     public ItemDetails itemDetails;
     public GameObject slotGrid;
     public GameObject slotPrefab;   // prefab
+    public BagUI bagUI;   
     public bool isSelected;
     public bool holdItem;
     public ItemName currentItem;
@@ -74,6 +75,7 @@ public class InventoryManager : Singleton<InventoryManager>
             itemList.Add(itemName);
             // UI对应显示
             itemDetails = itemData.GetItemDetails(itemName);
+            //bagUI.BagOpen();
             CreateNewItem(itemDetails);
         }
         else
