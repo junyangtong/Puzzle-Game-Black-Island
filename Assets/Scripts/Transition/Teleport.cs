@@ -27,6 +27,8 @@ public class Teleport : MonoBehaviour
     {
         if(canTransition)
         {
+            // 切换场景前先结束当前对话
+            EventHandler.CallShowDialogueEvent(string.Empty);
             sceneToGo.SetActive(true);
             sceneFrom.SetActive(false);
         }

@@ -50,14 +50,14 @@ public class DialogueController : MonoBehaviour
             EventHandler.CallShowDialogueEvent(result);
             yield return null;
             isTalking = false;
-            EventHandler.CallGameStateChangeEvent(GameState.Pause);
+            //EventHandler.CallGameStateChangeEvent(GameState.Pause);
         }
         else
         {
             EventHandler.CallShowDialogueEvent(string.Empty);
             FilldialogueStack();
             isTalking = false;
-            EventHandler.CallGameStateChangeEvent(GameState.GamePlay);
+            //EventHandler.CallGameStateChangeEvent(GameState.GamePlay);
         }
     }
 }
