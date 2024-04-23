@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6212fbb485f3a04c835753899575dcc, type: 3}
+  m_Name: CharacterFinish
+  m_EditorClassIdentifier: 
+  dialogueList:
+  - "\u8FD9\u91CC\u770B\u8D77\u6765\u4E0D\u662F\u5F88\u9002\u5408\u6E38\u6CF3"
+  - "\u6211\u597D\u50CF\u770B\u5230\u4E00\u6761\u6B7B\u9C7C.."

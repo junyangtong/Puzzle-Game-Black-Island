@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[RequireComponent(typeof(DialogueController))]
 public class Bonfires : Interactive
 {
     public GameObject Fire;
