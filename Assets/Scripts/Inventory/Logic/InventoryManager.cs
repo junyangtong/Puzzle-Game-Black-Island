@@ -75,13 +75,22 @@ public class InventoryManager : Singleton<InventoryManager>
             itemList.Add(itemName);
             // UI对应显示
             itemDetails = itemData.GetItemDetails(itemName);
-            bagUI.BagOpen();
+            if(itemName != ItemName.None)
+            {
+                bagUI.BagOpen();
+                Invoke("CloseBag",1);
+            }
             CreateNewItem(itemDetails);
         }
         else
         {
             Debug.Log("请勿重复添加，已销毁");
         }
+    }
+    private void CloseBag()
+    {
+        if(!bagUI.CursorInBagUI)
+            bagUI.BagClose();
     }
     public void CreateNewItem(ItemDetails itemDetails)
     {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BagUI : MonoBehaviour
 {
+    public bool CursorInBagUI = false;
     private Animation anim;
     private void Start() 
     {
@@ -16,5 +17,13 @@ public class BagUI : MonoBehaviour
     public void BagOpen()
     {
         anim.Play("BagOpen");
+    }
+    public void CursorHover()
+    {
+        CursorInBagUI = true;
+    }
+    public void CursorExit()
+    {
+        CursorInBagUI = false;
     }
 }

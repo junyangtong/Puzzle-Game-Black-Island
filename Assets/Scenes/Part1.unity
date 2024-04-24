@@ -10527,6 +10527,8 @@ GameObject:
   m_Component:
   - component: {fileID: 650020695}
   - component: {fileID: 650020696}
+  - component: {fileID: 650020698}
+  - component: {fileID: 650020697}
   m_Layer: 11
   m_Name: protectionScope
   m_TagString: Untagged
@@ -10572,6 +10574,32 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &650020697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650020694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff11cd0bbc1a21945ba45cb49e50b563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &650020698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650020694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37706c66a26dff64e8a4c507a954a7ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueEmpty: {fileID: 11400000, guid: e50878c88d957f64a8a77fe688be15c4, type: 2}
+  dialogueFinish: {fileID: 11400000, guid: d48b5d76d07c8a74f96cee0c2a90ed5d, type: 2}
 --- !u!1 &652175242
 GameObject:
   m_ObjectHideFlags: 0
@@ -11747,10 +11775,26 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1195420316}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
+        - m_Target: {fileID: 753597831}
+          m_TargetAssemblyTypeName: BagUI, Assembly-CSharp
+          m_MethodName: CursorExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 753597831}
+          m_TargetAssemblyTypeName: BagUI, Assembly-CSharp
+          m_MethodName: CursorHover
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11788,6 +11832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 650147900c4836f4ba8eaea470a6b294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CursorInBagUI: 0
 --- !u!1 &775559919
 GameObject:
   m_ObjectHideFlags: 0
