@@ -14,13 +14,15 @@ public class H1Sea : Sea
     protected override void EnterWater()
     {
         // 角色自言自语
-        int num = Random.Range(0, 2);
+        Debug.Log("自言自语");
+        
+        var num = Random.Range(0, 2);
         if(num == 0)
             dialogueController.ShowdialogueEmpty();
         else
             dialogueController.ShowdialogueFinish();
 
-        // 一段时间后对话框消失（暂时使用Invoke）
+        // 一段时间后对话框消失
         Invoke("CleanDialogue", 2f);
     }
     private void CleanDialogue()

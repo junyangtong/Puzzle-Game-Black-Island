@@ -75,7 +75,7 @@ public class InventoryManager : Singleton<InventoryManager>
             itemList.Add(itemName);
             // UI对应显示
             itemDetails = itemData.GetItemDetails(itemName);
-            //bagUI.BagOpen();
+            bagUI.BagOpen();
             CreateNewItem(itemDetails);
         }
         else
