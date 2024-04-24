@@ -67,4 +67,11 @@ public static class EventHandler
     {
         StopFocusEvent?.Invoke();
     }
+
+    //角色开始移动时调整Target的位置
+    public static event Action<bool> ItemCheckAnim;
+    public static void CallItemCheckAnim(bool ItemCorrectly)
+    {
+        ItemCheckAnim?.Invoke(ItemCorrectly);
+    }
 }

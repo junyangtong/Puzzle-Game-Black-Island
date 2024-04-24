@@ -16,7 +16,7 @@ public class H1Sea : Sea
         // 角色自言自语
         Debug.Log("自言自语");
         
-        int num = Random.Range(0, 2);
+        var num = Random.Range(0, 2);
         if(num == 0)
             dialogueController.ShowdialogueEmpty();
         else
