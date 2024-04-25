@@ -6,6 +6,7 @@ using UnityEngine;
 public class NestProtectionScop : MonoBehaviour
 {
     private DialogueController dialogueController;
+    public Animator anim;
     private void Awake()
     {
         dialogueController = GetComponent<DialogueController>();
@@ -14,7 +15,7 @@ public class NestProtectionScop : MonoBehaviour
     {
         // 角色自言自语
         Debug.Log("自言自语");
-        
+        anim.SetTrigger("angry");
         var num = Random.Range(0, 2);
         if(num == 0)
             dialogueController.ShowdialogueEmpty();

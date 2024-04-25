@@ -10634,7 +10634,7 @@ MonoBehaviour:
   footSpacing: 0.1
   footSpacingFront: 0
   stepstance: 0.05
-  high: 0.03
+  high: 0.16
   speed: 8
   otherleg: {fileID: 8089990233326836035}
 --- !u!1 &5848736842752637616
@@ -10966,7 +10966,7 @@ MonoBehaviour:
   footSpacing: -0.1
   footSpacingFront: 0
   stepstance: 0.05
-  high: 0.03
+  high: 0.16
   speed: 8
   otherleg: {fileID: 835426027775281700}
 --- !u!1 &8015385261645145233

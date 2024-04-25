@@ -36,7 +36,7 @@ ModelImporter:
       name: "\u9AA8\u67B6|angry"
       takeName: "\u9AA8\u67B6|angry"
       internalID: 4637783684351898944
-      firstFrame: 0
+      firstFrame: 28.68
       lastFrame: 60
       wrapMode: 0
       orientationOffsetY: 0
@@ -103,6 +103,35 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: "\u9AA8\u67B6|silence"
+      takeName: "\u9AA8\u67B6|silence"
+      internalID: -4539238727349506834
+      firstFrame: 0
+      lastFrame: 130
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

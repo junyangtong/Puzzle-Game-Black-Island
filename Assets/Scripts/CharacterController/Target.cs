@@ -32,7 +32,7 @@ public class Target : MonoBehaviour
     {
         if(isMove)
         {
-            footSpacingFront = 0.1f;
+            footSpacingFront = 0.18f;
         }
         else
         {
