@@ -30,7 +30,7 @@ public class FishingMan : Interactive
         else
             dialogueController.ShowdialogueEmpty();
     }
-    private void OnTriggerEnter(Collider other) 
+    private void OnTriggerStay(Collider other) 
     {
         if(other.tag == "Player")
         {
@@ -48,5 +48,11 @@ public class FishingMan : Interactive
             MainDialogue.SetActive(true);
             NPCDialogue.SetActive(false);
         }
+    }
+
+    private void OnDisable()
+    {
+        MainDialogue.SetActive(true);
+        NPCDialogue.SetActive(false);
     }
 }

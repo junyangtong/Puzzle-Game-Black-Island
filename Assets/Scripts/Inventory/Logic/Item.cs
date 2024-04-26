@@ -44,5 +44,8 @@ public class Item : MonoBehaviour
         InventoryManager.Instance.AddItem(itemName);
         anim.Play(PickItemAnim.name);
         AnimStart = true;
+        // 角色播放交互动画
+        EventHandler.CallItemCheckAnim(true);
+        
     }
 }

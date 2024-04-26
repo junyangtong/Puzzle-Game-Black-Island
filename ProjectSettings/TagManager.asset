@@ -11,6 +11,7 @@ TagManager:
   - CanBeUseProp
   - FreelyUseProp
   - Obstacle
+  - Duck
   layers:
   - Default
   - TransparentFX

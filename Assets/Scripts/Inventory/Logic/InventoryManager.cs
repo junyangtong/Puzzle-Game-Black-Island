@@ -78,7 +78,7 @@ public class InventoryManager : Singleton<InventoryManager>
             if(itemName != ItemName.None)
             {
                 bagUI.BagOpen();
-                Invoke("CloseBag",1);
+                Invoke("CloseBag",2);
             }
             CreateNewItem(itemDetails);
         }

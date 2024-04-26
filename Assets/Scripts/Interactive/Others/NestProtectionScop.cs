@@ -13,17 +13,20 @@ public class NestProtectionScop : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        // 角色自言自语
-        Debug.Log("自言自语");
-        anim.SetTrigger("angry");
-        var num = Random.Range(0, 2);
-        if(num == 0)
-            dialogueController.ShowdialogueEmpty();
-        else
-            dialogueController.ShowdialogueFinish();
+        if(other.gameObject.tag == "Player")
+        {
+            // 角色自言自语
+            Debug.Log("自言自语");
+            anim.SetTrigger("angry");
+            var num = Random.Range(0, 2);
+            if(num == 0)
+                dialogueController.ShowdialogueEmpty();
+            else
+                dialogueController.ShowdialogueFinish();
 
-        // 一段时间后对话框消失
-        Invoke("CleanDialogue", 2f);
+            // 一段时间后对话框消失
+            Invoke("CleanDialogue", 2f);
+        }
     }
     private void CleanDialogue()
     {
