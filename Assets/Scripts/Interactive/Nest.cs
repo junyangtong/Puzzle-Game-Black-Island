@@ -6,6 +6,7 @@ using UnityEngine;
 public class Nest : Interactive
 {
     public GameObject Bird;
+    public GameObject BrokenEgg;
     private CapsuleCollider coll;
     private DialogueController dialogueController;
     public bool haveDuck = true;
@@ -24,6 +25,7 @@ public class Nest : Interactive
         
         // 场景2小鸟出现
         Bird.SetActive(true);
+        BrokenEgg.SetActive(true);
 
         dialogueController.ShowdialogueFinish();
     }
