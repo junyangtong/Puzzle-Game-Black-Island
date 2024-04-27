@@ -24,7 +24,7 @@ public class Interactive : MonoBehaviour
             OnClickedAction();
             EventHandler.CallItemUsedEvent(itemName);
         }
-        if(itemName != requireItem && !isDone)
+        if(itemName != requireItem) // && !isDone
         {
             // 角色播放使用物品错误动画
             EventHandler.CallItemCheckAnim(false);

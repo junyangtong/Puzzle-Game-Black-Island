@@ -13,14 +13,15 @@ public class FishingMan : Interactive
     private void Awake()
     {
         NPCDialogue.SetActive(false);
-        FishingRod.SetActive(false);
+        //FishingRod.SetActive(false);
         dialogueController = GetComponent<DialogueController>();
     }
     
     protected override void OnClickedAction()
     {
         // 钓鱼人交出鱼竿
-        FishingRod.SetActive(true);
+        FishingRod.SetActive(false);
+        InventoryManager.Instance.AddItem(ItemName.FishingRods);
         dialogueController.ShowdialogueFinish();
     }
     public override void EmptyClicked()
@@ -52,7 +53,11 @@ public class FishingMan : Interactive
 
     private void OnDisable()
     {
-        MainDialogue.SetActive(true);
-        NPCDialogue.SetActive(false);
+        if (MainDialogue != null)
+        {
+            MainDialogue.SetActive(true);
+            NPCDialogue.SetActive(false);
+        }
+        
     }
 }
