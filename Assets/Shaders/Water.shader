@@ -129,6 +129,7 @@ Shader "Island/Water"
 			TEXTURE2D_X_FLOAT(_CameraDepthTexture);
             TEXTURE2D(_NormalMap);
             TEXTURE2D(_WarpMap);
+            SAMPLER(sampler_WarpMap);
             float4 _WarpMap_ST;
             TEXTURE2D(_ReflectionTex);
             TEXTURE2D(_FoamTex) ;
@@ -332,8 +333,8 @@ Shader "Island/Water"
 				float lh = max(saturate(dot(lDir, hDir)), 0.000001);
 				float nh = max(saturate(dot(nDirWS, hDir)), 0.000001);
                 //纹理采样
-                float3 offsetColor1 = SAMPLE_TEXTURE2D(_WarpMap,smp_Point_Repeat,i.uv * _WarpMap_ST.xy + _Time.x * _FlowSpeed).rgb;
-                float3 offsetColor2 = SAMPLE_TEXTURE2D(_WarpMap,smp_Point_Repeat,i.uv * _WarpMap_ST.xy - _Time.x * _FlowSpeed).rgb;
+                float3 offsetColor1 = SAMPLE_TEXTURE2D(_WarpMap,sampler_WarpMap,i.uv * _WarpMap_ST.xy + _Time.x * _FlowSpeed).rgb;
+                float3 offsetColor2 = SAMPLE_TEXTURE2D(_WarpMap,sampler_WarpMap,i.uv * _WarpMap_ST.xy - _Time.x * _FlowSpeed).rgb;
                 //提取信息
                 float2 warp = (offsetColor1.rg - 0.5) * _WarpInt + (offsetColor2.rg - 0.5) * -_WarpInt;
                 float noise = clamp(0,1,offsetColor1.b + offsetColor2.b);
@@ -342,7 +343,7 @@ Shader "Island/Water"
 
                 //光照计算
                     //深度颜色渐变
-                    float depth = SAMPLE_TEXTURE2D_X(_CameraDepthTexture, smp_Point_Repeat, screenPos).r;    //获取相机深度图
+                    float depth = SAMPLE_TEXTURE2D_X(_CameraDepthTexture, smp_Point_Repeat, warpScreenPos).r;    //获取相机深度图
                     float backgroundDepth = LinearEyeDepth(depth, _ZBufferParams);
                     float surfaceDepth = i.scrPos.w;
                     float viewWaterDepth = backgroundDepth - surfaceDepth;	                                //深度差值
