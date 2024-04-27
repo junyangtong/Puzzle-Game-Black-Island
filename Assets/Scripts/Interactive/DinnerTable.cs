@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Timeline;
 using UnityEngine.Playables;
+
+[RequireComponent(typeof(DialogueController))]
 public class DinnerTable : Interactive
 {
     public PlayableDirector playableDirector;
