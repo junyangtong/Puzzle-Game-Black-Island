@@ -5525,7 +5525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689eb7a09c90cca418e7b80ff036f40c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 2
   rotateLerp: 0.1
   StepParticall: {fileID: 8967249023558213553}
   StepParticalr: {fileID: 4540847845311428136}

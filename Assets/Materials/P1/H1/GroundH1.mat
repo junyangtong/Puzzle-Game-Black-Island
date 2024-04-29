@@ -56,8 +56,8 @@ Material:
     - _T1: 1
     - _T2: 0
     m_Colors:
-    - _BaseColor1: {r: 0.74509805, g: 0.6896253, b: 0.6509804, a: 0}
-    - _BaseColor2: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor1: {r: 0.7969918, g: 0.8490566, b: 0.8356189, a: 0}
+    - _BaseColor2: {r: 0.875445, g: 0.90891147, b: 0.9716981, a: 1}
     - _EmissCol: {r: 0, g: 0, b: 0, a: 0}
     - _MoveRange: {r: 0, g: 1, b: 0, a: 0}
     - _RippleColor: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
