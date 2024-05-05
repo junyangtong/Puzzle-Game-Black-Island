@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
             {   
                 // 计时器控制击退时间
                 timer.Update();
-                Vector3 RepulsedVector = (transform.position - RepulsedTarget).normalized;
+                Vector3 RepulsedVector = (RepulsedTarget).normalized;
                 move.x = RepulsedVector.x * Time.deltaTime;
                 move.z = RepulsedVector.z * Time.deltaTime;
             }
@@ -127,14 +127,17 @@ public class PlayerController : MonoBehaviour
         TimerID = timer.Schedule(RepulsedOver, 1, 1);
         Debug.Log("击退结束");
     }
-    
-    void OnTriggerEnter(Collider collision)
+    /// <summary>
+    /// 碰撞到刚体返回hit
+    /// </summary>
+    /// <param name="hit"></param>
+    void OnControllerColliderHit(ControllerColliderHit hit)
     {
         // 检测是否处于可交互物品的保护范围内 如果是则被击退
-        if (collision.gameObject.layer == 11)
+        if (hit.gameObject.layer == 11)
         { 
             Debug.Log("被击退");
-            RepulsedTarget = collision.gameObject.transform.position;
+            RepulsedTarget = hit.normal;
             isRepulsed = true;
         }
     }
