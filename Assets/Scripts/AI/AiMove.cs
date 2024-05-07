@@ -25,19 +25,18 @@ public class AiMove : MonoBehaviour
         timer = new TimerMgr();
         timer.Init();
         // 启动计时器
-        TimerID = timer.Schedule(MoveOver, 1, 2);
+        TimerID = timer.Schedule(MoveOver, 1, 3);
         car = GetComponent<CharacterController>();
     }
     private void MoveOver()
     {
         isMove = false;
-        isRepulsed = false;
     }
     void Update()
     {   
         Vector3 move = Vector3.zero;
         // 获取随机目标点
-        if(!isMove && !isRepulsed)
+        if(!isMove)
         {
             TargetPoint.x = Random.Range(Min.x, Max.x);
             TargetPoint.y = Random.Range(Min.y, Max.y);
@@ -46,15 +45,20 @@ public class AiMove : MonoBehaviour
         }
         if(isRepulsed)
         {
-            MoveTarget = (RepulsedTarget).normalized;
-            isMove = true;
+            MoveTarget = new Vector2((RepulsedTarget).normalized.x,(RepulsedTarget).normalized.z);
+            isRepulsed = false;
         }
+        if (isMove)
+        {
+            // 计时器控制移动时间
+            timer.Update();
+        }
+        
+        
         // 角色移动
         move.x = MoveTarget.x * Time.deltaTime;
         move.z = MoveTarget.y * Time.deltaTime;
 
-        // 计时器控制移动时间
-        timer.Update();
         //move.y -= 3f * Time.deltaTime;  //模拟重力
         if (car != null)
         {
@@ -74,7 +78,7 @@ public class AiMove : MonoBehaviour
         }
 
         //float rotationAngle = Mathf.Acos(Vector3.Dot(targetDirection, currentDirection)) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(targetDirection), rotateLerp);
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(targetDirection), rotateLerp);
 
         //transform.LookAt(transform.position + targetDirection); 
     }
@@ -88,7 +92,6 @@ public class AiMove : MonoBehaviour
         // 检测是否处于可交互物品的保护范围内 如果是则被击退
         if (hit.gameObject.layer == 11)
         { 
-            Debug.Log("被击退");
             RepulsedTarget = hit.normal;
             isRepulsed = true;
         }
