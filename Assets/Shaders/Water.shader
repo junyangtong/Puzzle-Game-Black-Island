@@ -343,7 +343,7 @@ Shader "Island/Water"
 
                 //光照计算
                     //深度颜色渐变
-                    float depth = SAMPLE_TEXTURE2D_X(_CameraDepthTexture, smp_Point_Repeat, warpScreenPos).r;    //获取相机深度图
+                    float depth = SAMPLE_TEXTURE2D_X(_CameraDepthTexture, smp_Point_Repeat, screenPos).r;    //获取相机深度图
                     float backgroundDepth = LinearEyeDepth(depth, _ZBufferParams);
                     float surfaceDepth = i.scrPos.w;
                     float viewWaterDepth = backgroundDepth - surfaceDepth;	                                //深度差值
@@ -392,7 +392,7 @@ Shader "Island/Water"
                 col = lerp(col,reflection.rgb,fresnel);
                 
                 return float4(col,1.0);
-                //return ripples.b;
+                //return depth;
             }
 
             ENDHLSL
