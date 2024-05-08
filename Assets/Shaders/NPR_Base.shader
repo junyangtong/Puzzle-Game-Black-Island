@@ -164,9 +164,9 @@ Shader "NPR/NPR_Base"
                     float2 RTuv = i.posWS.xz - _Position.xz;                                                // 像素点相对于相机中心的距离
                     RTuv = RTuv / (_OrthographicCamSize * 2);                                               // 转为 -0.5~0.5
                     RTuv += 0.5; // 转为 0~1
-                    float ripples = SAMPLE_TEXTURE2D(_GlobalStepRT, sampler_GlobalStepRT,saturate(RTuv)).b;  //采样RenderTexture
-                    ripples = step(2, ripples * 3);
-                    stepCol = finalRGB * ripples * _RippleColor.rgb;
+                    float4 ripples = SAMPLE_TEXTURE2D(_GlobalStepRT, sampler_GlobalStepRT,saturate(RTuv));  //采样RenderTexture
+                    //ripples = step(2, ripples * 3);
+                    stepCol = finalRGB * ripples.r * _RippleColor.rgb * ripples.a;
                 #else
                 #endif
 

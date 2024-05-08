@@ -362,9 +362,9 @@ Shader "Island/Water"
                     float2 RTuv = i.posWS.xz - _Position.xz;                                                // 像素点相对于相机中心的距离
                     RTuv = RTuv / (_OrthographicCamSize * 2);                                               // 转为 -0.5~0.5
                     RTuv += 0.5; // 转为 0~1
-                    float ripples = SAMPLE_TEXTURE2D(_GlobalRipplesRT, sampler_GlobalRipplesRT,saturate(RTuv)).b;  //采样RenderTexture
-                    ripples = step(2, ripples * 3);
-                    float3 ripplesCol = ripples * _RippleColor.rgb;
+                    float4 ripples = SAMPLE_TEXTURE2D(_GlobalRipplesRT, sampler_GlobalRipplesRT,saturate(RTuv));  //采样RenderTexture
+                    //float ripplesR = step(2, ripples.r * 3);
+                    float3 ripplesCol = ripples.r * _RippleColor.rgb * ripples.a;
                     //雨天涟漪
                     float3 emissive = 1-(frac((_Time.y * 20)));
                     float3 emissive2 = 1-(frac((_Time.y * 10) + 0.5));                                                                 //时间偏移
@@ -392,7 +392,7 @@ Shader "Island/Water"
                 col = lerp(col,reflection.rgb,fresnel);
                 
                 return float4(col,1.0);
-                //return refraction;
+                //return ripples.b;
             }
 
             ENDHLSL
