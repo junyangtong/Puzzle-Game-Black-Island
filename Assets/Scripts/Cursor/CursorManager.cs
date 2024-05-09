@@ -46,6 +46,7 @@ public class CursorManager : MonoBehaviour
                 //如果射线碰到物体
                 if (Physics.Raycast(ray, out clickObject))
                 {   
+                    //Debug.Log(clickObject.collider.gameObject.name);
                     if(collisionEvents.isCloseObj == true)
                     {
                         switch(clickObject.transform.tag)
