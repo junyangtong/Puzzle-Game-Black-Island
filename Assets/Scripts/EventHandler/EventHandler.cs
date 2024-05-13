@@ -74,4 +74,11 @@ public static class EventHandler
     {
         ItemCheckAnim?.Invoke(ItemCorrectly);
     }
+
+    // 角色钓鱼动画
+    public static event Action<bool> StartFishing;
+    public static void CallStartFishing(bool isFishing)
+    {
+        StartFishing?.Invoke(isFishing);
+    }
 }

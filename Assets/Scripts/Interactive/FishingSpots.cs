@@ -5,9 +5,11 @@ using UnityEngine;
 public class FishingSpots : Interactive
 {
     public GameObject Fish;
+    public GameObject FishUI;
     public bool choosePos = false;
     public GameObject choosePosTarget;
     public GameObject yupiao;
+    private GameObject yupiaotemp;
     private DialogueController dialogueController;
     private RaycastHit hit;
     private Ray ray;
@@ -23,10 +25,22 @@ public class FishingSpots : Interactive
     {
         // 播放使用物品的动画
         Debug.Log("开始钓鱼");
+        FishUI.SetActive(true);
+        EventHandler.CallStartFishing(true);
         choosePos = true;
         // 出现 鱼
-        Fish.SetActive(true);
-        dialogueController.ShowdialogueFinish();
+        //Fish.SetActive(true);
+        EventHandler.CallGameStateChangeEvent(GameState.MiniGame);
+        //dialogueController.ShowdialogueFinish();
+    }
+    public void StopFish()
+    {
+        Debug.Log("收杆");
+        EventHandler.CallGameStateChangeEvent(GameState.GamePlay);
+        FishUI.SetActive(false);
+        // 播放收起鱼漂的动画
+        yupiaotemp.GetComponent<Yupiao>().PickYupiao();
+        EventHandler.CallStartFishing(false);
     }
     public override void EmptyClicked()
     {
@@ -56,9 +70,12 @@ public class FishingSpots : Interactive
         {
             choosePosTarget.SetActive(false);
             choosePos = false;
-            yupiao.SetActive(true);
-            yupiao.transform.position = choosePosTarget.transform.position;
+            //yupiao.SetActive(true);
+            yupiaotemp = Instantiate(yupiao, choosePosTarget.transform.position, Quaternion.LookRotation(new Vector3(0,-1,0)));
+            yupiaotemp.transform.SetParent(this.transform); 
+            //yupiao.transform.position = choosePosTarget.transform.position;
             Debug.Log("释放鱼漂");
+            i = 0;
         }
     }
     void Update() 

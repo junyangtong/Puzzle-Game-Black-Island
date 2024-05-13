@@ -17,6 +17,7 @@ Shader "NPR/NPR_Base"
         [Toggle] _T1        ("地面?显示脚印?", Float) = 0
         _RippleColor        ("脚印颜色", Color) = (1, 1, 1, 1) 
         _AlphaClip       ("透明裁剪",Range(0,1)) = 0.0
+        _YPosClip       ("世界坐标深度裁剪（y轴）",Range(-100,1)) = -100
         [Enum(UnityEngine.Rendering.CullMode)] _Cull ("Cull Mode", Float) = 2
         [Toggle] _T2        ("顶点动画？", Float) = 0
         _MoveSpeed  ("移动速度",Float) = 1.0
@@ -38,7 +39,9 @@ Shader "NPR/NPR_Base"
             }
             Cull [_Cull]
             HLSLPROGRAM
-            
+            #pragma exclude_renderers gles gles3 glcore
+            #pragma target 4.5
+
             #pragma vertex vert
             #pragma fragment frag
             
@@ -50,7 +53,22 @@ Shader "NPR/NPR_Base"
             #pragma shader_feature _AdditionalLights
             #pragma shader_feature _T1_ON
             #pragma shader_feature _T2_ON
+//-----------------------
+            // Universal Pipeline keywords
+            #pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN
+            #pragma multi_compile _ _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHTS
+            #pragma multi_compile_fragment _ _ADDITIONAL_LIGHT_SHADOWS
+            #pragma multi_compile_fragment _ _REFLECTION_PROBE_BLENDING
+            #pragma multi_compile_fragment _ _REFLECTION_PROBE_BOX_PROJECTION
+            #pragma multi_compile_fragment _ _SHADOWS_SOFT
+            #pragma multi_compile_fragment _ _SCREEN_SPACE_OCCLUSION
+            #pragma multi_compile_fragment _ _DBUFFER_MRT1 _DBUFFER_MRT2 _DBUFFER_MRT3
+            #pragma multi_compile_fragment _ _LIGHT_LAYERS
+            #pragma multi_compile_fragment _ _LIGHT_COOKIES
+            #pragma multi_compile _ _FORWARD_PLUS
+            #pragma multi_compile_fragment _ _WRITE_RENDERING_LAYERS
 
+//-----------------------
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Shadows.hlsl"

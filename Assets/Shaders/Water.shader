@@ -25,7 +25,7 @@ Shader "Island/Water"
         [Header(Reflection)]
         _ReflectColor       ("反射颜色",Color) = (1,1,1,1)
         [Header(Fresnel)]
-        _FresnelScale       ("菲尼尔范围", Range(0,20)) = 15
+        _FresnelScale       ("菲尼尔范围", Range(0,60)) = 15
         _FresnelCol         ("菲尼尔颜色", Color) = (1,1,1,1)
         [Header(Fefraction)]
         _FlowSpeed          ("流动速度", Range(0,5)) = 1

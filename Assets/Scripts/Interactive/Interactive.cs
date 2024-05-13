@@ -19,7 +19,11 @@ public class Interactive : MonoBehaviour
         {
             // 角色播放使用物品动画
             EventHandler.CallItemCheckAnim(true);
-            isDone = true;
+            // TODO:支持可以多次使用的物品 当前只单独支持钓鱼竿
+            if(itemName != ItemName.FishingRods)
+            {
+                isDone = true;
+            }
             // 使用这个物品，移除物品
             OnClickedAction();
             EventHandler.CallItemUsedEvent(itemName);

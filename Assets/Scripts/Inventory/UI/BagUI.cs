@@ -6,6 +6,19 @@ public class BagUI : MonoBehaviour
 {
     public bool CursorInBagUI = false;
     private Animation anim;
+    private bool canOpenBag;
+    private void OnEnable() 
+    {
+        EventHandler.GameStateChangeEvent += OnGameStateChangeEvent;
+    }
+    private void OnDisable() 
+    {
+        EventHandler.GameStateChangeEvent -= OnGameStateChangeEvent;
+    }
+    private void OnGameStateChangeEvent(GameState gameState)
+    {
+        canOpenBag = gameState == GameState.GamePlay;
+    }
     private void Start() 
     {
         anim = GetComponent<Animation>();
@@ -16,7 +29,8 @@ public class BagUI : MonoBehaviour
     }
     public void BagOpen()
     {
-        anim.Play("BagOpen");
+        if(canOpenBag)
+            anim.Play("BagOpen");
     }
     public void CursorHover()
     {

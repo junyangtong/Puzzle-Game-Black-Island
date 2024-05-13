@@ -21,6 +21,7 @@
 #pragma shader_feature _T2_ON
 float _MoveSpeed;
 float4 _MoveRange;
+float _YPosClip;
 struct Attributes
 {
     float4 positionOS     : POSITION;
@@ -45,6 +46,7 @@ struct Varyings
     #if defined(REQUIRES_TANGENT_SPACE_VIEW_DIR_INTERPOLATOR)
     half3 viewDirTS     : TEXCOORD8;
     #endif
+    float3 positionWS   : TEXCOORD9;
 
     UNITY_VERTEX_INPUT_INSTANCE_ID
     UNITY_VERTEX_OUTPUT_STEREO
@@ -87,6 +89,7 @@ Varyings DepthNormalsVertex(Attributes input)
         half3 viewDirTS = GetViewDirectionTangentSpace(tangentWS, output.normalWS, viewDirWS);
         output.viewDirTS = viewDirTS;
     #endif
+    output.positionWS = vertexInput.positionWS;
 
     return output;
 }
@@ -139,10 +142,10 @@ void DepthNormalsFragment(
         #else
             float3 normalWS = input.normalWS;
         #endif
-
+        
         outNormalWS = half4(NormalizeNormalPerPixel(normalWS), 0.0);
     #endif
-
+        clip(input.positionWS.y - _YPosClip);
     #ifdef _WRITE_RENDERING_LAYERS
         uint renderingLayers = GetMeshRenderingLayer();
         outRenderingLayers = float4(EncodeMeshRenderingLayer(renderingLayers), 0, 0, 0);

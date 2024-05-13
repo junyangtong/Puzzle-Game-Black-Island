@@ -5440,7 +5440,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3940692246493822250}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.088, z: 0}
+  m_LocalPosition: {x: 0, y: 0.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5533,6 +5533,7 @@ MonoBehaviour:
   isInWater: 0
   RippleEffect: {fileID: 2994081287986282658}
   Rig: {fileID: 1634903762615604202}
+  FishRod: {fileID: 8000673185490861664}
 --- !u!54 &7542395052917672041
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5947,7 +5948,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.45
+      scalar: 0.48
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -10636,7 +10637,7 @@ MonoBehaviour:
   footSpacingFront: 0
   stepstance: 0.05
   high: 0.16
-  speed: 8
+  speed: 9
   otherleg: {fileID: 8089990233326836035}
 --- !u!1 &5848736842752637616
 GameObject:
@@ -10968,7 +10969,7 @@ MonoBehaviour:
   footSpacingFront: 0
   stepstance: 0.05
   high: 0.16
-  speed: 8
+  speed: 9
   otherleg: {fileID: 835426027775281700}
 --- !u!1 &8015385261645145233
 GameObject:
@@ -11319,7 +11320,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.45
+      scalar: 0.48
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -16016,10 +16017,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: "P1_H2_\u9493\u9C7C\u6746"
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0b019b7ff4295fd439384de5b7557d37,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0b019b7ff4295fd439384de5b7557d37,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8579665093974192749}
   m_SourcePrefab: {fileID: 100100000, guid: 0b019b7ff4295fd439384de5b7557d37, type: 3}
 --- !u!4 &7224839726943741146 stripped
 Transform:
@@ -16027,3 +16037,21 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7190401488007578417}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8000673185490861664 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0b019b7ff4295fd439384de5b7557d37,
+    type: 3}
+  m_PrefabInstance: {fileID: 7190401488007578417}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8579665093974192749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8000673185490861664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1348bc94c1400c4c9f680f0eaccd603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
