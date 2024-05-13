@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public bool isInWater;
     public GameObject RippleEffect;
     public GameObject Rig;
+    public GameObject FishRod;
 
     private CharacterController car;
     private Animator anim;
@@ -29,11 +30,13 @@ public class PlayerController : MonoBehaviour
     {
         EventHandler.GameStateChangeEvent += OnGameStateChangeEvent;
         EventHandler.ItemCheckAnim += OnItemCheckAnim;
+        EventHandler.StartFishing += OnStartFishing;
     }
     private void OnDisable() 
     {
         EventHandler.GameStateChangeEvent -= OnGameStateChangeEvent;
         EventHandler.ItemCheckAnim -= OnItemCheckAnim;
+        EventHandler.StartFishing -= OnStartFishing;
     }
     private void OnGameStateChangeEvent(GameState gameState)
     {
@@ -45,7 +48,20 @@ public class PlayerController : MonoBehaviour
             anim.SetTrigger("ItemCorrectly");
         else
             anim.SetTrigger("ItemFalse");
-
+    }
+    private void OnStartFishing(bool isFishing)
+    {
+        if(isFishing)
+        {
+            anim.SetTrigger("Fishing");
+            FishRod.SetActive(isFishing);
+        }
+        else
+        {
+            anim.SetTrigger("FishingOver");
+            FishRod.SetActive(isFishing);
+        }
+            
     }
     void Start()
     {

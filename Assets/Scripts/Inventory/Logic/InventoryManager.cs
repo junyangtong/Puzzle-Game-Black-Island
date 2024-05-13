@@ -61,9 +61,14 @@ public class InventoryManager : Singleton<InventoryManager>
             if(slotUI.currentItem.itemName == itemName)
             {
                 InitializeSelectionState();
-                Destroy(slotUI.gameObject);
-                Debug.Log("移除背包中的"+slotUI.currentItem.itemName);
-                itemList.Remove(itemName);
+                // TODO:支持可以多次使用的物品 当前只单独支持钓鱼竿
+                if(slotUI.currentItem.itemName != ItemName.FishingRods)
+                {
+                    Destroy(slotUI.gameObject);
+                    Debug.Log("移除背包中的"+slotUI.currentItem.itemName);
+                    itemList.Remove(itemName);
+                }
+                
             }
         }
         
