@@ -9,6 +9,7 @@ public class DialogueController : MonoBehaviour
     private Stack<string> dialogueEmptyStack;
     private Stack<string> dialogueFinishStack;
     private bool isTalking;
+    public bool talkOver = false;
 
 
     private void Awake() 
@@ -16,7 +17,7 @@ public class DialogueController : MonoBehaviour
         FilldialogueStack();
     }
     //逐一输出对话
-    private void FilldialogueStack()
+    public void FilldialogueStack()
     {
         dialogueEmptyStack = new Stack<string>();
         dialogueFinishStack = new Stack<string>();
@@ -30,7 +31,6 @@ public class DialogueController : MonoBehaviour
             dialogueFinishStack.Push(dialogueFinish.dialogueList[i]);
         }
     }
-
     public void ShowdialogueEmpty()
     {
         if(!isTalking)
@@ -50,14 +50,14 @@ public class DialogueController : MonoBehaviour
             EventHandler.CallShowDialogueEvent(result);
             yield return null;
             isTalking = false;
-            //EventHandler.CallGameStateChangeEvent(GameState.Pause);
+            talkOver = false;
         }
         else
         {
             EventHandler.CallShowDialogueEvent(string.Empty);
             FilldialogueStack();
             isTalking = false;
-            //EventHandler.CallGameStateChangeEvent(GameState.GamePlay);
+            talkOver = true;
         }
     }
 }

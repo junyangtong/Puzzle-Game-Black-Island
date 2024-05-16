@@ -40,6 +40,11 @@ public class FishingSpots : Interactive
         FishUI.SetActive(false);
         // 播放收起鱼漂的动画
         yupiaotemp.GetComponent<Yupiao>().PickYupiao();
+        // 如果收杆时鱼漂抓到鱼，则显示鱼
+        if(yupiaotemp.GetComponent<Yupiao>().Catching)
+        {
+            Fish.SetActive(true);
+        }
         EventHandler.CallStartFishing(false);
     }
     public override void EmptyClicked()
