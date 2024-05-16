@@ -8,26 +8,22 @@ public class CursorManager : MonoBehaviour
     private Ray ray;
     private ItemName currentItem;
     private bool holdItem;
+    private bool canClick;
 
     public CollisionEvents collisionEvents;
 
-    /*private void OnEnable() 
+    private void OnEnable() 
     {
-        EventHandler.ItemSelectedEvent += OnItemSelectedEvent;
+        EventHandler.GameStateChangeEvent += OnGameStateChangeEvent;
     }
-    void OnDisable()
+    private void OnDisable() 
     {
-        EventHandler.ItemSelectedEvent -= OnItemSelectedEvent;
+        EventHandler.GameStateChangeEvent -= OnGameStateChangeEvent;
     }
-
-    private void OnItemSelectedEvent(ItemDetails itemDetails,bool isSelected)
-    {   
-        holdItem = isSelected;
-        if(isSelected)
-        {
-            currentItem = itemDetails.itemName;
-        }
-    }*/
+    private void OnGameStateChangeEvent(GameState gameState)
+    {
+        canClick = gameState == GameState.GamePlay;
+    }
 
     void Update()
     {
@@ -39,7 +35,7 @@ public class CursorManager : MonoBehaviour
         //如果角色靠近可交互物品
         
             //（0是左键、1是右键）
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && canClick)
             {
                 //向鼠标点击的位置发射射线
                 ray = Camera.main.ScreenPointToRay(Input.mousePosition);

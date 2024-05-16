@@ -10,6 +10,8 @@ public class Yupiao : Singleton<Yupiao>
     public bool Catching = false;
     private Animation anim;
     public AnimationClip Pickyupiao;
+    [Header("鱼上钩时的特效")]
+    public GameObject Shuihua;
     private bool AnimStart = false;
     
     private void OnEnable() 
@@ -34,10 +36,12 @@ public class Yupiao : Singleton<Yupiao>
         if(Catching) 
         {
             Debug.Log("鱼上钩啦！");
+            Shuihua.SetActive(true);
         }
     }
     public void PickYupiao() 
     {
+        Shuihua.SetActive(false);
         anim.Play(Pickyupiao.name);
         AnimStart = true;
     }

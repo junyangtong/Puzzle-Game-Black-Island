@@ -12,6 +12,7 @@ TagManager:
   - FreelyUseProp
   - Obstacle
   - Duck
+  - Yupiao
   layers:
   - Default
   - TransparentFX

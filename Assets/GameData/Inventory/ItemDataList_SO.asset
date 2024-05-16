@@ -14,26 +14,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemDatailsList:
   - itemName: 0
-    itemSprite: {fileID: 21300000, guid: e9c52f3549a43fc4195e5191485d0956, type: 3}
+    itemSprite: {fileID: 21300000, guid: e362ee1aa9513224da1eb45725996950, type: 3}
     itemTooltip: "\u672A\u9009\u62E9..."
   - itemName: 1
-    itemSprite: {fileID: 21300000, guid: 8780cf6659ea64c4bb51c529d080d667, type: 3}
+    itemSprite: {fileID: 21300000, guid: bea359108cde9534cb93dc5ab0edaa96, type: 3}
     itemTooltip: "\u8FD9\u662F\u4E00\u4E2A\u86CB"
   - itemName: 2
-    itemSprite: {fileID: 21300000, guid: 3c3216870affe5b44852f307b437481b, type: 3}
+    itemSprite: {fileID: 21300000, guid: fad4d977b89cdeb448b5ccfa5af1fb6e, type: 3}
     itemTooltip: "\u4E00\u4E2A\u79CD\u5B50"
   - itemName: 3
-    itemSprite: {fileID: 21300000, guid: a1d2fd0d613de944e99769bfc6b7aa89, type: 3}
+    itemSprite: {fileID: 21300000, guid: 9e7bf17bcb23bb3438eb77ebd301f158, type: 3}
     itemTooltip: "\u4E00\u4E9B\u6811\u679D"
   - itemName: 4
-    itemSprite: {fileID: 21300000, guid: c4c52816bca6fa34eb63dd146e1d18ed, type: 3}
+    itemSprite: {fileID: 21300000, guid: 3822050a05941e040909c405198221ec, type: 3}
     itemTooltip: "\u4E00\u6839\u9493\u9C7C\u7AFF"
   - itemName: 5
-    itemSprite: {fileID: 21300000, guid: 3f1794709599ce64b86465e50212853c, type: 3}
+    itemSprite: {fileID: 21300000, guid: b880da8078b20204195dc0c4cca0986c, type: 3}
     itemTooltip: "\u4E00\u6761\u9C7C"
   - itemName: 6
     itemSprite: {fileID: 21300000, guid: 5979c2416156170449d4727da04aa7f4, type: 3}
     itemTooltip: "\u9C7C\u9AA8\u5934"
   - itemName: 7
-    itemSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    itemSprite: {fileID: 21300000, guid: d769190cd3c696c4c9937f03e5c9eaf3, type: 3}
     itemTooltip: "\u4E00\u53EA\u6D77\u9F9F\u79D1\u5B66\u5BB6.."
