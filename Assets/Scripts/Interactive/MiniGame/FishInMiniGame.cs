@@ -105,6 +105,7 @@ public class FishInMiniGame : MonoBehaviour
             //进入管道
             Debug.Log("进入管道，游戏结束");
             CatchFish.Instance.isLaunch = false;
+            CatchFish.Instance.GameOver = true;
             
         }
     }

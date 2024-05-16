@@ -76,7 +76,7 @@ public class FishingSpots : Interactive
             choosePosTarget.SetActive(false);
             choosePos = false;
             //yupiao.SetActive(true);
-            yupiaotemp = Instantiate(yupiao, choosePosTarget.transform.position, Quaternion.LookRotation(new Vector3(0,-1,0)));
+            yupiaotemp = Instantiate(yupiao, choosePosTarget.transform.position, Quaternion.LookRotation(new Vector3(0,0,0)));
             yupiaotemp.transform.SetParent(this.transform); 
             //yupiao.transform.position = choosePosTarget.transform.position;
             Debug.Log("释放鱼漂");

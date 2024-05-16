@@ -15,6 +15,9 @@ public class CatchFish : Singleton<CatchFish>
     public bool isLaunch;
     public GameObject DragBall1;
     public GameObject DragBall2;
+    public bool GameOver = false;
+    public GameObject FishBone;
+
 
     void Start()
     {
@@ -34,6 +37,10 @@ public class CatchFish : Singleton<CatchFish>
         CameraRotateRight();
         if(!isRotate)
         CameraRotateLeft();
+        if(GameOver)
+        {
+            FishBone.SetActive(true);
+        }
     }
     
     private void FishLaunch()

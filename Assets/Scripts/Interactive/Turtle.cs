@@ -12,6 +12,7 @@ public class Turtle : Interactive
     public GameObject MainDialogue;
     public GameObject Choose1UI;
     public GameObject Choose2UI;
+    public GameObject Teleport;
     public GameObject Choose3UI;
     public GameObject TurtlePickUp;
     public PlayableDirector playableDirector;
@@ -23,6 +24,7 @@ public class Turtle : Interactive
     private DialogueController dialogueController;
     private void Awake()
     {
+        Teleport.SetActive(false);
         NPCDialogue.SetActive(false);
         dialogueController = GetComponent<DialogueController>();
     }
@@ -38,6 +40,7 @@ public class Turtle : Interactive
         if (dialogueController.talkOver && beforeChoose2)
         {
             Choose2UI.SetActive(true);
+            Teleport.SetActive(true);
             EventHandler.CallGameStateChangeEvent(GameState.MiniGame);
             dialogueController.dialogueFinish = dialogue3;
             dialogueController.FilldialogueStack();
@@ -112,7 +115,7 @@ public class Turtle : Interactive
         Choose2UI.SetActive(false);
         EventHandler.CallGameStateChangeEvent(GameState.GamePlay);
     }
-    public void TeleportHelp()
+    public void TeleportOpen()
     {
         Choose2UI.SetActive(true);
     }

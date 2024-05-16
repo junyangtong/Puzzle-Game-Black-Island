@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Island_WaterMenu
+  m_Shader: {fileID: 4800000, guid: 39d2a2c95ff36334db1322484b4efb6c, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Cubemap:
+        m_Texture: {fileID: 8900000, guid: 1cde0e200e792cb4491204276a656490, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FoamTex:
+        m_Texture: {fileID: 2800000, guid: 6d6f171702afb574dae57dc1507f8ba0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: 573a67ec857efab4a993e8a40bad0467, type: 3}
+        m_Scale: {x: 1, y: 0.26}
+        m_Offset: {x: 0, y: 0}
+    - _RainTex:
+        m_Texture: {fileID: 2800000, guid: 56b55bd56ed94704bbd55f9bbd10ec5b, type: 3}
+        m_Scale: {x: 200, y: 200}
+        m_Offset: {x: 0, y: 0}
+    - _ReflectTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ReflectTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ReflectionTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecMaskTex:
+        m_Texture: {fileID: 2800000, guid: d0cb396a39c92414ca62860ae7105a86, type: 3}
+        m_Scale: {x: 20, y: 20}
+        m_Offset: {x: 0, y: 0}
+    - _WarpMap:
+        m_Texture: {fileID: 2800000, guid: a33730c075b8aff4f80b2bb6c048c9f8, type: 3}
+        m_Scale: {x: 10, y: 10}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaRange: 0.62
+    - _Amplitude: 0.042
+    - _CubemapMip: 0
+    - _DepthRange: 2.08
+    - _FlowSpeed: 1
+    - _FoamRange: 1
+    - _FresnelScale: 60
+    - _MaxTessDistance: 165
+    - _MetallicInt: 0.5
+    - _MinTessDistance: 1
+    - _NormalIntensity: 0.6
+    - _NormalScale: 8.3
+    - _RainInt: 0
+    - _Smoothness: 0.273
+    - _SpecularRange: 10
+    - _SpecularStrenght: 1.68
+    - _Steepness: 0.24
+    - _Tess: 2
+    - _WarpInt: 0.07
+    - _WaveLength: 3.74
+    - _WaveXSpeed: 0.5
+    - _WaveYSpeed: 0.5
+    - _WindDir: 78
+    - _WindSpeed: 0.472
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Diffcol: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 1}
+    - _Foam: {r: 0.08, g: 0, b: 0.04, a: 1}
+    - _FresnelCol: {r: 0, g: 0.41828066, b: 0.4716981, a: 1}
+    - _MainCol: {r: 0, g: 0.65999997, b: 0.73, a: 1}
+    - _ReflectColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Refractioncol: {r: 0.66180134, g: 0.9811321, b: 0.9251156, a: 1}
+    - _RippleColor: {r: 0, g: 0, b: 0, a: 1}
+    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
+    - _WaterDeepColr: {r: 0.20701031, g: 0.20754719, b: 0.16740835, a: 1}
+    - _WaterShallowColr: {r: 0.3490566, g: 0.34023076, b: 0.28155038, a: 1}
+  m_BuildTextureStacks: []
