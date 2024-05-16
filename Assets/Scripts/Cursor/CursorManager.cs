@@ -9,7 +9,10 @@ public class CursorManager : MonoBehaviour
     private ItemName currentItem;
     private bool holdItem;
     private bool canClick;
-
+    private void Start() 
+    {
+        canClick = true;
+    }
     public CollisionEvents collisionEvents;
 
     private void OnEnable() 
@@ -31,7 +34,6 @@ public class CursorManager : MonoBehaviour
         //1.可拾取
         //2.可使用物品
         //3.可操作
-
         //如果角色靠近可交互物品
         
             //（0是左键、1是右键）

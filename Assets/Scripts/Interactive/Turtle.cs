@@ -129,6 +129,7 @@ public class Turtle : Interactive
     
     public void Understood()
     {
+        EventHandler.CallGameStateChangeEvent(GameState.GamePlay);
         Choose2UI.SetActive(false);
         beforeChoose2 = false;
         beforeChoose3 = true;

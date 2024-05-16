@@ -21,6 +21,7 @@ public class LoadManager : MonoBehaviour
     {
         // 同步加载
         SceneManager.LoadScene("Menu");
+        Time.timeScale = 1f;
     }
     public void LoadSelectLevel()
     {

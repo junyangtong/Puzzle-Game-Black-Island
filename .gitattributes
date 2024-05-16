@@ -1,1 +1,2 @@
 /打包测试/TimeTraveler_test_Data/sharedassets0.assets.resS filter=lfs diff=lfs merge=lfs -text
+/打包测试/TimeTraveler_test_Data/sharedassets3.assets.resS filter=lfs diff=lfs merge=lfs -text
