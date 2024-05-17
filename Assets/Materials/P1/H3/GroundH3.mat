@@ -55,9 +55,10 @@ Material:
     - _NormalInt: 1
     - _T1: 1
     - _T2: 0
+    - _YPosClip: -100
     m_Colors:
-    - _BaseColor1: {r: 0.5941171, g: 0.6164512, b: 0.745283, a: 1}
-    - _BaseColor2: {r: 0.8679245, g: 0.82860965, b: 0.7573869, a: 1}
+    - _BaseColor1: {r: 0.5366679, g: 0.53742296, b: 0.5660378, a: 1}
+    - _BaseColor2: {r: 0.7075472, g: 0.7075472, b: 0.7075472, a: 1}
     - _EmissCol: {r: 0, g: 0, b: 0, a: 0}
     - _MoveRange: {r: 0, g: 1, b: 0, a: 0}
     - _RippleColor: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}

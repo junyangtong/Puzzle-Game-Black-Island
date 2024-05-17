@@ -146,11 +146,12 @@ Material:
     - _T1: 0
     - _T2: 0
     - _WorkflowMode: 1
+    - _YPosClip: -100
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BaseColor1: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 0}
-    - _BaseColor2: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor1: {r: 0.69288564, g: 0.6797793, b: 0.7169812, a: 0}
+    - _BaseColor2: {r: 0.9056604, g: 0.87950355, b: 0.8244927, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissCol: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

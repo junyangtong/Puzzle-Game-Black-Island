@@ -26,8 +26,8 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _ALPHATEST_ON
-  m_InvalidKeywords:
   - _AdditionalLights
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -148,11 +148,12 @@ Material:
     - _T1: 0
     - _T2: 0
     - _WorkflowMode: 1
+    - _YPosClip: -100
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BaseColor1: {r: 0.8962264, g: 0.8679399, b: 0.8243592, a: 0}
-    - _BaseColor2: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor1: {r: 0.8326362, g: 0.8383443, b: 0.9339623, a: 0}
+    - _BaseColor2: {r: 0.9622642, g: 0.9205055, b: 0.8578676, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissCol: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

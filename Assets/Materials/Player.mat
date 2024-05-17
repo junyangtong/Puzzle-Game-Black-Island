@@ -11,9 +11,9 @@ Material:
   m_Shader: {fileID: 4800000, guid: 909a9326108b0f64da30f7f382b3a3d5, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords:
+  m_ValidKeywords:
   - _AdditionalLights
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
@@ -135,11 +135,12 @@ Material:
     - _T1: 0
     - _T2: 0
     - _WorkflowMode: 1
+    - _YPosClip: -100
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BaseColor1: {r: 0.7264151, g: 0.7126336, b: 0.68187076, a: 0}
-    - _BaseColor2: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor1: {r: 0.72079116, g: 0.68235296, b: 0.7254902, a: 0}
+    - _BaseColor2: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissCol: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

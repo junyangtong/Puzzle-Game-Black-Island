@@ -136,10 +136,10 @@ Material:
     - _YPosClip: -100
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 1, g: 0.86660004, b: 0.3726415, a: 1}
+    - _BaseColor: {r: 0.86774653, g: 0.91722023, b: 0.9433962, a: 1}
     - _BaseColor1: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
     - _BaseColor2: {r: 1, g: 0.89187104, b: 0.4669811, a: 1}
-    - _Color: {r: 1, g: 0.86660004, b: 0.37264147, a: 1}
+    - _Color: {r: 0.86774653, g: 0.9172203, b: 0.9433962, a: 1}
     - _EmissCol: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _MoveRange: {r: 0, g: 1, b: 0, a: 0}
