@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: CharacterEmpty
   m_EditorClassIdentifier: 
   dialogueList:
-  - "\u5E94\u8BE5\u6CA1\u4EBA\u60F3\u5728\u8FD9\u6837\u7684\u6C34\u91CC\u6E38\u6CF3..."
-  - "\u8FD9\u91CC\u597D\u51B7..\u8FD8\u5F88\u810F"
-  - "\u4E0D\u60F3\u5F85\u5728\u8FD9\u6837\u7684\u6C34\u91CC"
+  - "\u8FD9\u91CC\u597D\u51B7"
+  - "( >\uFE4F<)..."
+  - "\u9700\u8981\u5148\u6696\u548C\u8D77\u6765"

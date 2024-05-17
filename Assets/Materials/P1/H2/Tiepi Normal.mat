@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Tiepi 1
+  m_Name: Tiepi Normal
   m_Shader: {fileID: 4800000, guid: 909a9326108b0f64da30f7f382b3a3d5, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -144,7 +144,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissCol: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MoveRange: {r: 0, g: 0, b: 0, a: 0}
+    - _MoveRange: {r: -0.11, g: 0, b: 0, a: 0}
     - _RippleColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
