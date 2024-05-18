@@ -31,7 +31,7 @@ public class P1WoodDoor : Interactive
     }
     protected override void OnClickedAction()
     {
-        
+        EventHandler.CallItemCheckAnim(true);
         // 只有不播放动画的时候才会累加次数
         if(!AnimStart)
         {
