@@ -8,6 +8,7 @@ using UnityEngine.Playables;
 public class DinnerTable : Interactive
 {
     public PlayableDirector playableDirector;
+    public GameObject FishInTable;
     private DialogueController dialogueController;
 
     private void Awake()
@@ -19,7 +20,7 @@ public class DinnerTable : Interactive
     {
         // 播放使用物品的动画
         Debug.Log("鱼放在海鸭的餐桌");
-        
+        FishInTable.SetActive(true);
         // 播放海鸭吃饭的TimeLine
         Invoke("TimeLineStart",1);
         dialogueController.ShowdialogueFinish();

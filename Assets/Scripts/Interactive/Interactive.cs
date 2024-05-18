@@ -41,6 +41,8 @@ public class Interactive : MonoBehaviour
     /// </summary>
     public void OnClickedActionNoRequire()
     {
+        // 角色播放使用物品动画
+        EventHandler.CallItemCheckAnim(true);
         OnClickedAction();
     }
     /// <summary>
