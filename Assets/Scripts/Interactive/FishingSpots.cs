@@ -25,6 +25,7 @@ public class FishingSpots : Interactive
     {
         // 播放使用物品的动画
         Debug.Log("开始钓鱼");
+        FishUI.SetActive(true);
         EventHandler.CallStartFishing(true);
         choosePos = true;
         // 出现 鱼
@@ -74,7 +75,6 @@ public class FishingSpots : Interactive
         {
             choosePosTarget.SetActive(false);
             choosePos = false;
-            FishUI.SetActive(true);
             //yupiao.SetActive(true);
             yupiaotemp = Instantiate(yupiao, choosePosTarget.transform.position, Quaternion.LookRotation(new Vector3(0,0,0)));
             yupiaotemp.transform.SetParent(this.transform); 

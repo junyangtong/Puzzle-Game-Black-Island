@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: CharacterFinish
   m_EditorClassIdentifier: 
   dialogueList:
-  - 
+  - "\u79CD\u5B50\u79CD\u4E0B\u53BB\u4E86"
+  - "\u53BB\u672A\u6765\u770B\u770B"

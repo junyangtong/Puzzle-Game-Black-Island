@@ -8,8 +8,7 @@ public class Teleport : MonoBehaviour
     public GameObject sceneToGo;
     
     private bool canTransition;
-    private void Start() 
-    {
+    private void Start() {
         canTransition = true;
     }
     private void OnEnable() 

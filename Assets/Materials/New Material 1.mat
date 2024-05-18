@@ -103,7 +103,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AddLights: 1
-    - _AlphaClip: 0.54
+    - _AlphaClip: 0.509
     - _AlphaToMask: 0
     - _Blend: 3
     - _BlendModePreserveSpecular: 1
@@ -114,7 +114,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DiffStep: 0.99
+    - _DiffStep: 0.5
     - _DstBlend: 0
     - _DstBlendAlpha: 1
     - _EnvironmentReflections: 1
@@ -137,12 +137,11 @@ Material:
     - _T1: 0
     - _T2: 0
     - _WorkflowMode: 1
-    - _YPosClip: -66
     - _ZWrite: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BaseColor1: {r: 0.21711464, g: 0.33023325, b: 0.38679248, a: 0}
-    - _BaseColor2: {r: 0.25685295, g: 0.42239973, b: 0.49056602, a: 1}
+    - _BaseColor1: {r: 0, g: 0, b: 0, a: 0}
+    - _BaseColor2: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissCol: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

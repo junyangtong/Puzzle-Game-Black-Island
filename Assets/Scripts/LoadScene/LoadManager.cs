@@ -55,12 +55,4 @@ public class LoadManager : MonoBehaviour
             yield return null;
         }
     }
-    public void ExitGame()
-    {
-        #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-        #else
-            Application.Quit();
-        #endif
-    }
 }
