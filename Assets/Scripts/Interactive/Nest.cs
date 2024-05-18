@@ -11,7 +11,6 @@ public class Nest : Interactive
     private DialogueController dialogueController;
     public bool haveDuck = true;
     public GameObject protectionScope;
-    public GameObject eggInNest;
 
     private void Awake()
     {
@@ -23,14 +22,18 @@ public class Nest : Interactive
     {
         // 播放使用物品的动画
         Debug.Log("鸟蛋放在鸟窝里");
-        eggInNest.SetActive(true);
+        
         // 场景2小鸟出现
         Bird.SetActive(true);
         BrokenEgg.SetActive(true);
+
+        dialogueController.ShowdialogueFinish();
     }
     public override void EmptyClicked()
     {
-        if(!isDone)
+        if(isDone)
+            dialogueController.ShowdialogueFinish();
+        else
             dialogueController.ShowdialogueEmpty();
     }
 }
