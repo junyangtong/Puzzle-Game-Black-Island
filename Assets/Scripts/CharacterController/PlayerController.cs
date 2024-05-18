@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     private Transform player;
     private Vector3 targetDirection,currentDirection;
     private bool canMove = false;
-    private bool isMove = false;
+    public bool isMove = false;
     private bool isRepulsed = false;
     private Vector3 RepulsedTarget;
 
