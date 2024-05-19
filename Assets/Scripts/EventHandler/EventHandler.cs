@@ -81,4 +81,10 @@ public static class EventHandler
     {
         StartFishing?.Invoke(isFishing);
     }
+    // 时空转换器过场动画
+    public static event Action TeleportAnim;
+    public static void CallTeleportAnimEvent()
+    {
+        TeleportAnim?.Invoke();
+    }
 }

@@ -30,8 +30,14 @@ public class Teleport : MonoBehaviour
         {
             // 切换场景前先结束当前对话
             EventHandler.CallShowDialogueEvent(string.Empty);
-            sceneToGo.SetActive(true);
-            sceneFrom.SetActive(false);
+            // 异步播放过场动画
+            EventHandler.CallTeleportAnimEvent();
+            Invoke("ChangeScene",0.3f);
         }
+    }
+    private void ChangeScene()
+    {
+        sceneToGo.SetActive(true);
+        sceneFrom.SetActive(false);
     }
 }

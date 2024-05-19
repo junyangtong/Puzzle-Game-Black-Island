@@ -8,7 +8,35 @@ public class LoadManager : MonoBehaviour
     public GameObject LoadScreen;
     public Slider slider;
     public Text text;
-
+    public Animation anim;
+    /// <summary>
+    /// H场景加载
+    /// </summary>
+    private void OnEnable() 
+    {
+        EventHandler.TeleportAnim += OnTeleportAnim;
+    }
+    private void OnDisable() 
+    {
+        EventHandler.TeleportAnim -= OnTeleportAnim;
+    }
+    private void OnTeleportAnim()
+    {
+        // 异步加载时空转换过场动画
+        StartCoroutine(LoadTeleportScene());
+    }
+    IEnumerator LoadTeleportScene()
+    {
+        anim.Play("TeleportAnim");
+        //播动画
+        while (anim.isPlaying)
+        {
+            yield return null;
+        }
+    }
+    /// <summary>
+    /// P场景加载
+    /// </summary>
     public void LoadPart0()
     {
         StartCoroutine(LoadAsyncScene("Part0"));

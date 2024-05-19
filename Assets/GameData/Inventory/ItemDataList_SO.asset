@@ -21,7 +21,7 @@ MonoBehaviour:
     itemTooltip: "\u8FD9\u662F\u4E00\u4E2A\u86CB"
   - itemName: 2
     itemSprite: {fileID: 21300000, guid: fad4d977b89cdeb448b5ccfa5af1fb6e, type: 3}
-    itemTooltip: "\u4E00\u4E2A\u79CD\u5B50"
+    itemTooltip: "\u770B\u8D77\u6765\u662F\u4E00\u4E2A\u79CD\u5B50"
   - itemName: 3
     itemSprite: {fileID: 21300000, guid: 9e7bf17bcb23bb3438eb77ebd301f158, type: 3}
     itemTooltip: "\u4E00\u4E9B\u6811\u679D"
@@ -32,8 +32,8 @@ MonoBehaviour:
     itemSprite: {fileID: 21300000, guid: b880da8078b20204195dc0c4cca0986c, type: 3}
     itemTooltip: "\u4E00\u6761\u9C7C"
   - itemName: 6
-    itemSprite: {fileID: 21300000, guid: 5979c2416156170449d4727da04aa7f4, type: 3}
-    itemTooltip: "\u9C7C\u9AA8\u5934"
+    itemSprite: {fileID: 21300000, guid: 293e7c099ad9792468084365e21b343a, type: 3}
+    itemTooltip: "\u4E00\u53EA\u53D8\u5F02\u7684\u9C7C"
   - itemName: 7
     itemSprite: {fileID: 21300000, guid: d769190cd3c696c4c9937f03e5c9eaf3, type: 3}
     itemTooltip: "\u4E00\u53EA\u6D77\u9F9F\u79D1\u5B66\u5BB6.."

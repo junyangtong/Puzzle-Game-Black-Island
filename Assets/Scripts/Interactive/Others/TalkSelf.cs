@@ -14,6 +14,7 @@ public class TalkSelf : MonoBehaviour
     {
         // 角色自言自语
         dialogueController.ShowdialogueEmpty();
+        
     }
     private void OnDisable() 
     {
