@@ -8,6 +8,8 @@ public class SlotUI : MonoBehaviour,IPointerClickHandler
 {
     public Image itemImage;
     public ItemDetails currentItem;
+    public Image outLineImage;
+    public GameObject outLine;
     private bool isSelected;
     private bool isSelectedtemp;
     public void SetItem(ItemDetails itemDetails)
@@ -15,6 +17,8 @@ public class SlotUI : MonoBehaviour,IPointerClickHandler
         currentItem = itemDetails;
         itemImage.sprite = itemDetails.itemSprite;
         itemImage.SetNativeSize();
+        outLineImage.sprite = itemDetails.itemSprite;
+        //outLineImage.SetNativeSize();
     }
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -43,9 +47,15 @@ public class SlotUI : MonoBehaviour,IPointerClickHandler
     {
         // 高亮显示
         if(isHighLight)
-            itemImage.color = new Color(0.5f, 0.5f, 0.5f, 1.0f);
+        {
+            itemImage.color = new Color(0.0f, 0.0f, 0.0f, 1.0f);
+            outLine.SetActive(true);
+        }
         else
+        {
             itemImage.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            outLine.SetActive(false);
+        }
     }
     
 }
